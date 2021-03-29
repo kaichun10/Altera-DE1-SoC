@@ -3,12 +3,6 @@ ___
 ### Design and test state machine on FPGA
 ___
 
-#### Testing GPIO using DE1-SoC and implement on XEM6310
-
-![Design](https://raw.githubusercontent.com/kaichun10/Altera-DE1-SoC/main/img/Design-Diagram.JPG)
-
-___
-
 #### Project summary
 ___
 
@@ -308,4 +302,3 @@ ___
 4. Make changes and push again to test the pipeline
 
 ___
-# Altera-DE1-SoC
