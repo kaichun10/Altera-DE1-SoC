@@ -1,0 +1,530 @@
+Analysis & Synthesis report for color_picker
+Fri Mar 26 21:43:53 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |color_picker|controller:U1|next_state
+  9. State Machine - |color_picker|controller:U1|present_state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "controller:U1"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Mar 26 21:43:53 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; color_picker                                ;
+; Top-level Entity Name           ; color_picker                                ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 26                                          ;
+; Total pins                      ; 95                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; color_picker       ; color_picker       ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; color_picker.vhd                 ; yes             ; User VHDL File  ; C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd ;         ;
+; seven_seg.vhd                    ; yes             ; User VHDL File  ; C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd    ;         ;
+; controller.vhd                   ; yes             ; User VHDL File  ; C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/controller.vhd   ;         ;
+; basic_RAM.vhd                    ; yes             ; User VHDL File  ; C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd    ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 24           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 42           ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 5            ;
+;     -- 5 input functions                    ; 8            ;
+;     -- 4 input functions                    ; 5            ;
+;     -- <=3 input functions                  ; 24           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 26           ;
+;                                             ;              ;
+; I/O pins                                    ; 95           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 27           ;
+; Total fan-out                               ; 335          ;
+; Average fan-out                             ; 1.30         ;
++---------------------------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+--------------+--------------+
+; |color_picker              ; 42 (39)             ; 26 (21)                   ; 0                 ; 0          ; 95   ; 0            ; |color_picker               ; color_picker ; work         ;
+;    |controller:U1|         ; 3 (3)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |color_picker|controller:U1 ; controller   ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |color_picker|controller:U1|next_state                            ;
++--------------------+--------------------+--------------------+--------------------+
+; Name               ; next_state.B_write ; next_state.G_write ; next_state.R_write ;
++--------------------+--------------------+--------------------+--------------------+
+; next_state.R_write ; 0                  ; 0                  ; 0                  ;
+; next_state.G_write ; 0                  ; 1                  ; 1                  ;
+; next_state.B_write ; 1                  ; 0                  ; 1                  ;
++--------------------+--------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |color_picker|controller:U1|present_state                                     ;
++-----------------------+-----------------------+-----------------------+-----------------------+
+; Name                  ; present_state.B_write ; present_state.G_write ; present_state.R_write ;
++-----------------------+-----------------------+-----------------------+-----------------------+
+; present_state.R_write ; 0                     ; 0                     ; 0                     ;
+; present_state.G_write ; 0                     ; 1                     ; 1                     ;
+; present_state.B_write ; 1                     ; 0                     ; 1                     ;
++-----------------------+-----------------------+-----------------------+-----------------------+
+
+
++-------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                            ;
++----------------------------------------+--------------------------------------+
+; Register name                          ; Reason for Removal                   ;
++----------------------------------------+--------------------------------------+
+; basic_RAM:U2|read_address[0,1]         ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[0][0]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[1][0]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[2][0]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[3][0]                 ; Stuck at VCC due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[0]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][1]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[1][1]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[2][1]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[3][1]                 ; Stuck at VCC due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[1]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][2]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[1][2]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[2][2]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[3][2]                 ; Stuck at VCC due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[2]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][3]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[1][3]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[2][3]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[3][3]                 ; Stuck at GND due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[3]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][4]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[1][4]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[2][4]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[3][4]                 ; Stuck at GND due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[4]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][5]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[1][5]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[2][5]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[3][5]                 ; Stuck at VCC due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[5]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][6]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[1][6]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[2][6]                 ; Stuck at VCC due to stuck port clock ;
+; basic_RAM:U2|RAM[3][6]                 ; Stuck at VCC due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[6]          ; Lost fanout                          ;
+; basic_RAM:U2|RAM[0][7]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[1][7]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[2][7]                 ; Stuck at GND due to stuck port clock ;
+; basic_RAM:U2|RAM[3][7]                 ; Stuck at GND due to stuck port clock ;
+; controller:U1|RAM_DATA_OUT[7]          ; Lost fanout                          ;
+; controller:U1|RAM_ADDR[0,1]            ; Lost fanout                          ;
+; controller:U1|next_state.G_write       ; Lost fanout                          ;
+; controller:U1|present_state.G_write    ; Lost fanout                          ;
+; Total Number of Removed Registers = 46 ;                                      ;
++----------------------------------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                             ;
++------------------------------+-------------------------+--------------------------------------------------------------------------------+
+; Register name                ; Reason for Removal      ; Registers Removed due to This Register                                         ;
++------------------------------+-------------------------+--------------------------------------------------------------------------------+
+; basic_RAM:U2|RAM[0][3]       ; Stuck at GND            ; controller:U1|RAM_DATA_OUT[3], basic_RAM:U2|RAM[2][4], basic_RAM:U2|RAM[3][4], ;
+;                              ; due to stuck port clock ; basic_RAM:U2|RAM[3][5], basic_RAM:U2|RAM[3][6], basic_RAM:U2|RAM[3][7]         ;
+; basic_RAM:U2|RAM[2][0]       ; Stuck at VCC            ; basic_RAM:U2|RAM[3][0], basic_RAM:U2|RAM[3][1], basic_RAM:U2|RAM[3][2]         ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][0]       ; Stuck at VCC            ; controller:U1|RAM_DATA_OUT[0], basic_RAM:U2|RAM[2][1]                          ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][1]       ; Stuck at GND            ; controller:U1|RAM_DATA_OUT[1], basic_RAM:U2|RAM[2][2]                          ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][2]       ; Stuck at VCC            ; controller:U1|RAM_DATA_OUT[2], basic_RAM:U2|RAM[2][3]                          ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][4]       ; Stuck at VCC            ; controller:U1|RAM_DATA_OUT[4], basic_RAM:U2|RAM[2][5]                          ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][5]       ; Stuck at GND            ; controller:U1|RAM_DATA_OUT[5], basic_RAM:U2|RAM[2][6]                          ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][6]       ; Stuck at VCC            ; controller:U1|RAM_DATA_OUT[6], basic_RAM:U2|RAM[2][7]                          ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|read_address[0] ; Stuck at GND            ; controller:U1|RAM_ADDR[0]                                                      ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|read_address[1] ; Stuck at GND            ; controller:U1|RAM_ADDR[1]                                                      ;
+;                              ; due to stuck port clock ;                                                                                ;
+; basic_RAM:U2|RAM[0][7]       ; Stuck at GND            ; controller:U1|RAM_DATA_OUT[7]                                                  ;
+;                              ; due to stuck port clock ;                                                                                ;
++------------------------------+-------------------------+--------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 26    ;
+; Number of registers using Synchronous Clear  ; 21    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |color_picker|h_pos[5]                  ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |color_picker|v_pos[7]                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |color_picker|controller:U1|RAM_ADDR[1] ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |color_picker|controller:U1|RAM_WR      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |color_picker|basic_RAM:U2|Mux7         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controller:U1"                                                                            ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; r_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; g_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; b_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 26                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 11                          ;
+;     plain             ; 5                           ;
+; arriav_lcell_comb     ; 44                          ;
+;     arith             ; 21                          ;
+;         1 data inputs ; 21                          ;
+;     normal            ; 23                          ;
+;         0 data inputs ; 2                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 5                           ;
+;         5 data inputs ; 8                           ;
+;         6 data inputs ; 5                           ;
+; boundary_port         ; 95                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Mar 26 21:43:42 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off color_picker -c color_picker
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file color_picker.vhd
+    Info (12022): Found design unit 1: color_picker-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 45
+    Info (12023): Found entity 1: color_picker File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file seven_seg.vhd
+    Info (12022): Found design unit 1: seven_seg-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd Line: 14
+    Info (12023): Found entity 1: seven_seg File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
+    Info (12022): Found design unit 1: controller-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/controller.vhd Line: 27
+    Info (12023): Found entity 1: controller File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/controller.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file basic_ram.vhd
+    Info (12022): Found design unit 1: basic_RAM-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 23
+    Info (12023): Found entity 1: basic_RAM File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 6
+Info (12127): Elaborating entity "color_picker" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at color_picker.vhd(41): used explicit default value for signal "VGA_BLANK_N" because signal was never assigned a value File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 41
+Warning (10540): VHDL Signal Declaration warning at color_picker.vhd(42): used explicit default value for signal "VGA_SYNC_N" because signal was never assigned a value File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 42
+Warning (10541): VHDL Signal Declaration warning at color_picker.vhd(102): used implicit default value for signal "toplevel_clock" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 102
+Warning (10036): Verilog HDL or VHDL warning at color_picker.vhd(109): object "R_data_out" assigned a value but never read File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 109
+Warning (10036): Verilog HDL or VHDL warning at color_picker.vhd(110): object "G_data_out" assigned a value but never read File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 110
+Warning (10036): Verilog HDL or VHDL warning at color_picker.vhd(111): object "B_data_out" assigned a value but never read File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 111
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(288): signal "VGA_OUPUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 288
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(294): signal "R_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 294
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(295): signal "G_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 295
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(296): signal "B_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 296
+Info (12128): Elaborating entity "controller" for hierarchy "controller:U1" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 139
+Info (12128): Elaborating entity "basic_RAM" for hierarchy "basic_RAM:U2" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 162
+Warning (10873): Using initial value X (don't care) for net "LED_RAM_ADDR[1]" at basic_RAM.vhd(11) File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 11
+Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:U3" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 179
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LED_RAM_ADDR[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 18
+    Warning (13410): Pin "LED_RAM_DATA_IN[0]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[2]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[4]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[6]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "LED_RAM_DATA_IN[7]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 19
+    Warning (13410): Pin "seven_seg_R_0[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_0[1]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_0[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_0[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_0[4]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_0[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_0[6]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 24
+    Warning (13410): Pin "seven_seg_R_1[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_R_1[1]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_R_1[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_R_1[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_R_1[4]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_R_1[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_R_1[6]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 25
+    Warning (13410): Pin "seven_seg_G_0[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_0[1]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_0[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_0[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_0[4]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_0[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_0[6]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 26
+    Warning (13410): Pin "seven_seg_G_1[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_G_1[1]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_G_1[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_G_1[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_G_1[4]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_G_1[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_G_1[6]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 27
+    Warning (13410): Pin "seven_seg_B_0[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_0[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_0[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_0[3]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_0[4]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_0[5]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_0[6]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 28
+    Warning (13410): Pin "seven_seg_B_1[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "seven_seg_B_1[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "seven_seg_B_1[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "seven_seg_B_1[3]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "seven_seg_B_1[4]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "seven_seg_B_1[5]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "seven_seg_B_1[6]" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 29
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 32
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 32
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 32
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 32
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 33
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 33
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 33
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 33
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 34
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 34
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 41
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 42
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "data_in[0]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[1]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[2]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[3]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[4]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[5]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[6]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+    Warning (15610): No output dependent on input pin "data_in[7]" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
+Info (21057): Implemented 139 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 81 output pins
+    Info (21061): Implemented 44 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 85 warnings
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Fri Mar 26 21:43:53 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:22
+
+

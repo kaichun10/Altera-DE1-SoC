@@ -1,0 +1,76 @@
+To,Location
+toplevel_clock, PIN_AF14
+
+
+
+
+
+
+
+
+top_LED_clk, PIN_V16
+top_LED_enable, PIN_W16 
+LED_gntx_x, PIN_V17
+LED_gntx_y, PIN_V18
+
+
+
+LED_Writex[0], PIN_W17
+LED_Writex[1], PIN_W19
+
+
+LED_reqx_x, PIN_W21 
+LED_reqx_y, PIN_Y21
+
+
+
+LED_X0[0], PIN_AE26
+LED_X0[1], PIN_AE27 
+LED_X0[2], PIN_AE28
+LED_X0[3], PIN_AG27
+LED_X0[4], PIN_AF28
+LED_X0[5], PIN_AG28
+LED_X0[6], PIN_AH28
+
+LED_X1[0], PIN_AJ29
+LED_X1[1], PIN_AH29
+LED_X1[2], PIN_AH30
+LED_X1[3], PIN_AG30
+LED_X1[4], PIN_AF29
+LED_X1[5], PIN_AF30
+LED_X1[6], PIN_AD27
+
+LED_Y0[0], PIN_AA24
+LED_Y0[1], PIN_Y23
+LED_Y0[2], PIN_Y24
+LED_Y0[3], PIN_W22
+LED_Y0[4], PIN_W24
+LED_Y0[5], PIN_V23
+LED_Y0[6], PIN_W25
+
+LED_Y1[0], PIN_V25
+LED_Y1[1], PIN_AA28
+LED_Y1[2], PIN_Y27
+LED_Y1[3], PIN_AB27
+LED_Y1[4], PIN_AB26
+LED_Y1[5], PIN_AA26
+LED_Y1[6], PIN_AA25
+
+switch_y_avail, PIN_AB12
+switch_x_avail, PIN_AC12
+
+switch_y_input[0], PIN_AF9
+switch_y_input[1], PIN_AF10
+switch_y_input[2], PIN_AD11
+switch_y_input[3], PIN_AD12
+switch_x_input[0], PIN_AE11
+switch_x_input[1], PIN_AC9
+switch_x_input[2], PIN_AD10
+switch_x_input[3], PIN_AE12
+
+top_reset, PIN_AA14
+
+
+KEY[1], PIN_AA15
+KEY[2], PIN_W15
+KEY[3], PIN_Y16

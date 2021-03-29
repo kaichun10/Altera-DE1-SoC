@@ -1,0 +1,100 @@
+LIBRARY ieee;
+LIBRARY worklib;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY seven_seg IS
+    PORT (
+        data_in : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+
+        seven_seg_0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- digit_ones
+        seven_seg_1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- digit_sixteens
+    );
+END seven_seg;
+
+ARCHITECTURE schematic OF testbench_xbar IS
+
+    SIGNAL digit_ones : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL digit_sixteens : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+BEGIN
+
+    digit_ones <= data_in (7 DOWNTO 4);
+    digit_sixteens <= data_in (3 DOWNTO 0);
+
+    PROCESS (digit_ones)
+    BEGIN
+        CASE digit_ones IS
+            WHEN "0000" =>
+                seven_seg_0 <= "1000000"; -- "0" 
+            WHEN "0001" =>
+                seven_seg_0 <= "1111001"; -- "1" 
+            WHEN "0010" =>
+                seven_seg_0 <= "0100100"; -- "2" 
+            WHEN "0011" =>
+                seven_seg_0 <= "0110000"; -- "3" 
+            WHEN "0100" =>
+                seven_seg_0 <= "0011001"; -- "4" 
+            WHEN "0101" =>
+                seven_seg_0 <= "0010010"; -- "5" 
+            WHEN "0110" =>
+                seven_seg_0 <= "0000010"; -- "6" 
+            WHEN "0111" =>
+                seven_seg_0 <= "1111000"; -- "7" 
+            WHEN "1000" =>
+                seven_seg_0 <= "0000000"; -- "8"     
+            WHEN "1001" =>
+                seven_seg_0 <= "0010000"; -- "9" 
+            WHEN "1010" =>
+                seven_seg_0 <= "0001000"; -- a
+            WHEN "1011" =>
+                seven_seg_0 <= "0000011"; -- b
+            WHEN "1100" =>
+                seven_seg_0 <= "1000110"; -- C
+            WHEN "1101" =>
+                seven_seg_0 <= "0100001"; -- d
+            WHEN "1110" =>
+                seven_seg_0 <= "0000110"; -- E
+            WHEN "1111" =>
+                seven_seg_0 <= "0001110"; -- F
+        END CASE;
+    END PROCESS;
+
+    PROCESS (digit_sixteens)
+    BEGIN
+        CASE digit_sixteens IS
+            WHEN "0000" =>
+                seven_seg_1 <= "1000000"; -- "0" 
+            WHEN "0001" =>
+                seven_seg_1 <= "1111001"; -- "1" 
+            WHEN "0010" =>
+                seven_seg_1 <= "0100100"; -- "2" 
+            WHEN "0011" =>
+                seven_seg_1 <= "0110000"; -- "3" 
+            WHEN "0100" =>
+                seven_seg_1 <= "0011001"; -- "4" 
+            WHEN "0101" =>
+                seven_seg_1 <= "0010010"; -- "5" 
+            WHEN "0110" =>
+                seven_seg_1 <= "0000010"; -- "6" 
+            WHEN "0111" =>
+                seven_seg_1 <= "1111000"; -- "7" 
+            WHEN "1000" =>
+                seven_seg_1 <= "0000000"; -- "8"     
+            WHEN "1001" =>
+                seven_seg_1 <= "0010000"; -- "9" 
+            WHEN "1010" =>
+                seven_seg_1 <= "0001000"; -- a
+            WHEN "1011" =>
+                seven_seg_1 <= "0000011"; -- b
+            WHEN "1100" =>
+                seven_seg_1 <= "1000110"; -- C
+            WHEN "1101" =>
+                seven_seg_1 <= "0100001"; -- d
+            WHEN "1110" =>
+                seven_seg_1 <= "0000110"; -- E
+            WHEN "1111" =>
+                seven_seg_1 <= "0001110"; -- F
+        END CASE;
+    END PROCESS;
+
+END schematic;

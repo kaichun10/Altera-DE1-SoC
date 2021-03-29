@@ -1,0 +1,44 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+-- A 128x8 single-port RAM in VHDL
+ENTITY basic_RAM IS
+   PORT (
+      RAM_CLOCK : IN STD_LOGIC; -- clock input for RAM
+      RAM_WR : IN STD_LOGIC; -- Write enable 
+
+      RAM_ADDR : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- Address to write/read RAM
+
+      RAM_DATA_IN : IN STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data to write into RAM
+
+      RAM_R_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- Data output of RAM
+      RAM_G_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- Data output of RAM
+      RAM_B_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- Data output of RAM
+   );
+END basic_RAM;
+
+ARCHITECTURE Behavioral OF basic_RAM IS
+   -- define the new type for the 128x8 RAM 
+   TYPE RAM_ARRAY IS ARRAY (0 TO 3) OF STD_LOGIC_VECTOR (7 DOWNTO 0);
+   -- initial values in the RAM
+   SIGNAL RAM : RAM_ARRAY := (
+      x"00", x"00", x"00", x"11" -- x"0" x"1" x"2" x"3"
+   );
+BEGIN
+   PROCESS (RAM_CLOCK)
+   BEGIN
+      IF (rising_edge(RAM_CLOCK)) THEN
+         IF (RAM_WR = '1') THEN -- when write enable = 1, 
+            -- write input data into RAM at the provided address
+            RAM(to_integer(unsigned(RAM_ADDR))) <= RAM_DATA_IN;
+            -- The index of the RAM array type needs to be integer so
+            -- converts RAM_ADDR from std_logic_vector -> Unsigned -> Interger using numeric_std library
+         END IF;
+      END IF;
+   END PROCESS;
+   -- Data to be read out 
+   RAM_R_DATA_OUT <= RAM(to_integer(unsigned(x"0")));
+   RAM_G_DATA_OUT <= RAM(to_integer(unsigned(x"1")));
+   RAM_B_DATA_OUT <= RAM(to_integer(unsigned(x"2")));
+END Behavioral;

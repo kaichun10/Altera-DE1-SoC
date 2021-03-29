@@ -1,0 +1,108 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 18:49:03  March 24, 2021
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		testbench_xbar_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY testbench_xbar
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:49:03  MARCH 24, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name VHDL_FILE testbench_xbar.vhd
+set_global_assignment -name VHDL_FILE stim_xbar.vhd
+set_global_assignment -name VHDL_FILE control.vhd
+set_global_assignment -name VHDL_FILE output.vhd
+set_location_assignment PIN_AF14 -to toplevel_clock
+set_location_assignment PIN_V16 -to top_LED_clk
+set_location_assignment PIN_W16 -to top_LED_enable
+set_location_assignment PIN_V17 -to LED_gntx_x
+set_location_assignment PIN_V18 -to LED_gntx_y
+set_location_assignment PIN_W17 -to LED_Writex[0]
+set_location_assignment PIN_W19 -to LED_Writex[1]
+set_location_assignment PIN_W21 -to LED_reqx_x
+set_location_assignment PIN_Y21 -to LED_reqx_y
+set_location_assignment PIN_AE26 -to LED_X0[0]
+set_location_assignment PIN_AE27 -to LED_X0[1]
+set_location_assignment PIN_AE28 -to LED_X0[2]
+set_location_assignment PIN_AG27 -to LED_X0[3]
+set_location_assignment PIN_AF28 -to LED_X0[4]
+set_location_assignment PIN_AG28 -to LED_X0[5]
+set_location_assignment PIN_AH28 -to LED_X0[6]
+set_location_assignment PIN_AJ29 -to LED_X1[0]
+set_location_assignment PIN_AH29 -to LED_X1[1]
+set_location_assignment PIN_AH30 -to LED_X1[2]
+set_location_assignment PIN_AG30 -to LED_X1[3]
+set_location_assignment PIN_AF29 -to LED_X1[4]
+set_location_assignment PIN_AF30 -to LED_X1[5]
+set_location_assignment PIN_AD27 -to LED_X1[6]
+set_location_assignment PIN_AA24 -to LED_Y0[0]
+set_location_assignment PIN_Y23 -to LED_Y0[1]
+set_location_assignment PIN_Y24 -to LED_Y0[2]
+set_location_assignment PIN_W22 -to LED_Y0[3]
+set_location_assignment PIN_W24 -to LED_Y0[4]
+set_location_assignment PIN_V23 -to LED_Y0[5]
+set_location_assignment PIN_W25 -to LED_Y0[6]
+set_location_assignment PIN_V25 -to LED_Y1[0]
+set_location_assignment PIN_AA28 -to LED_Y1[1]
+set_location_assignment PIN_Y27 -to LED_Y1[2]
+set_location_assignment PIN_AB27 -to LED_Y1[3]
+set_location_assignment PIN_AB26 -to LED_Y1[4]
+set_location_assignment PIN_AA26 -to LED_Y1[5]
+set_location_assignment PIN_AA25 -to LED_Y1[6]
+set_location_assignment PIN_AB12 -to switch_y_avail
+set_location_assignment PIN_AC12 -to switch_x_avail
+set_location_assignment PIN_AF9 -to switch_y_input[0]
+set_location_assignment PIN_AF10 -to switch_y_input[1]
+set_location_assignment PIN_AD11 -to switch_y_input[2]
+set_location_assignment PIN_AD12 -to switch_y_input[3]
+set_location_assignment PIN_AE11 -to switch_x_input[0]
+set_location_assignment PIN_AC9 -to switch_x_input[1]
+set_location_assignment PIN_AD10 -to switch_x_input[2]
+set_location_assignment PIN_AE12 -to switch_x_input[3]
+set_location_assignment PIN_AA14 -to top_reset
+set_location_assignment PIN_AA15 -to KEY[1]
+set_location_assignment PIN_W15 -to KEY[2]
+set_location_assignment PIN_Y16 -to KEY[3]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

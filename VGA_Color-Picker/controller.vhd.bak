@@ -1,0 +1,142 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY controller IS
+    PORT (
+        clk : IN STD_LOGIC;
+        enable : IN STD_LOGIC;
+
+        -- Input data from switch
+        data_in : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+
+        -- Control RGB write state
+        state_switch : IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+
+        -- Store RGB data into RAM
+        RAM_WR : OUT STD_LOGIC; -- Write enable 
+        RAM_ADDR : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- Address to write/read RAM
+        RAM_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data to write into RAM
+
+        -- 7 seg display output for RGB values in hexadecimal
+        R_data_out : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+        G_data_out : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+        B_data_out : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+    );
+END controller;
+
+ARCHITECTURE arch OF edgeDetector IS
+
+    TYPE states IS (R_write, G_write, B_write); -- 3 states are required for Moore
+    SIGNAL present_state : states;
+    SIGNAL next_state : states;
+
+BEGIN
+    PROCESS (clk)
+    BEGIN
+    ELSIF (clk'event AND clk = '1') THEN -- otherwise update the states
+        present_state <= next_state;
+    ELSE
+        NULL;
+    END IF;
+END PROCESS;
+
+PROCESS (clk)
+BEGIN
+    IF (clk'event AND clk = '1') THEN -- otherwise update the states
+
+        -- present_state <= R_write;
+        next_state <= present_state;
+        CASE present_state IS
+            WHEN R_write =>
+                IF state_switch = "00" THEN
+                    next_state <= R_write;
+
+                    -- Data to 7 seg output
+                    R_data_out <= data_in;
+
+                    -- Write RAM data
+                    RAM_WR <= enable;
+                    RAM_ADDR <= x"0";
+                    RAM_DATA_OUT <= data_in;
+
+                END IF;
+                IF state_switch = "01" THEN
+                    next_state <= G_write;
+                END IF;
+                IF state_switch = "10" THEN
+                    next_state <= B_write;
+                END IF;
+                IF state_switch = "11" THEN
+                    next_state <= R_write;
+                END IF;
+
+            WHEN G_write =>
+                IF state_switch = "00" THEN
+                    next_state <= R_write;
+                END IF;
+                IF state_switch = "01" THEN
+                    next_state <= G_write;
+
+                    -- Data to 7 seg output
+                    G_data_out <= data_in;
+
+                    -- Write RAM data
+                    RAM_WR <= enable;
+                    RAM_ADDR <= x"1";
+                    RAM_DATA_OUT <= data_in;
+
+                END IF;
+                IF state_switch = "10" THEN
+                    next_state <= B_write;
+                END IF;
+                IF state_switch = "11" THEN
+                    next_state <= G_write;
+                END IF;
+
+            WHEN B_write =>
+                IF state_switch = "00" THEN
+                    next_state <= R_write;
+                END IF;
+                IF state_switch = "01" THEN
+                    next_state <= G_write;
+                END IF;
+                IF state_switch = "10" THEN
+                    next_state <= B_write;
+
+                    -- Data to 7 seg output
+                    B_data_out <= data_in;
+
+                    -- Write RAM data
+                    RAM_WR <= enable;
+                    RAM_ADDR <= x"2";
+                    RAM_DATA_OUT <= data_in;
+
+                END IF;
+                IF state_switch = "11" THEN
+                    next_state <= B_write;
+                END IF;
+
+            WHEN OTHERS =>
+                -- Set the default state and outputs.
+                next_state <= R_write;
+                R_data_out <= "00000000";
+                G_data_out <= "00000000";
+                B_data_out <= "00000000";
+
+                next_state <= G_write;
+
+                -- Data to 7 seg output
+                R_data_out <= "00000000";
+                G_data_out <= "00000000";
+                B_data_out <= "00000000";
+
+                -- Write RAM data
+                RAM_WR <= '0';
+                RAM_ADDR <= x"3";
+                RAM_DATA_OUT <= x"1"; -- use for debug
+
+            ELSE
+                NULL;
+        END CASE;
+    END PROCESS;
+END arch;

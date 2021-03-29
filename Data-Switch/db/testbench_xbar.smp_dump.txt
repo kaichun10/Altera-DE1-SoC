@@ -1,0 +1,34 @@
+
+State Machine - |testbench_xbar|output:U5|present_state
+Name present_state.grant_y present_state.grant_x present_state.poll_y present_state.poll_x 
+present_state.poll_x 0 0 0 0 
+present_state.poll_y 0 0 1 1 
+present_state.grant_x 0 1 0 1 
+present_state.grant_y 1 0 0 1 
+
+State Machine - |testbench_xbar|output:U4|present_state
+Name present_state.grant_y present_state.grant_x present_state.poll_y present_state.poll_x 
+present_state.poll_x 0 0 0 0 
+present_state.poll_y 0 0 1 1 
+present_state.grant_x 0 1 0 1 
+present_state.grant_y 1 0 0 1 
+
+State Machine - |testbench_xbar|control:U3|present_state
+Name present_state.data_yfer present_state.data_xfer present_state.setup_y present_state.setup_x present_state.setupB present_state.setupA present_state.poll_fifo 
+present_state.poll_fifo 0 0 0 0 0 0 0 
+present_state.setupA 0 0 0 0 0 1 1 
+present_state.setupB 0 0 0 0 1 0 1 
+present_state.setup_x 0 0 0 1 0 0 1 
+present_state.setup_y 0 0 1 0 0 0 1 
+present_state.data_xfer 0 1 0 0 0 0 1 
+present_state.data_yfer 1 0 0 0 0 0 1 
+
+State Machine - |testbench_xbar|control:U2|present_state
+Name present_state.data_yfer present_state.data_xfer present_state.setup_y present_state.setup_x present_state.setupB present_state.setupA present_state.poll_fifo 
+present_state.poll_fifo 0 0 0 0 0 0 0 
+present_state.setupA 0 0 0 0 0 1 1 
+present_state.setupB 0 0 0 0 1 0 1 
+present_state.setup_x 0 0 0 1 0 0 1 
+present_state.setup_y 0 0 1 0 0 0 1 
+present_state.data_xfer 0 1 0 0 0 0 1 
+present_state.data_yfer 1 0 0 0 0 0 1 

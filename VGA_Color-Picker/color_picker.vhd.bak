@@ -1,0 +1,173 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_arith.ALL;
+USE ieee.std_logic_unsigned.ALL;
+ENTITY VGA IS
+	PORT (
+		--CLK input
+		--PUSH button or SWITCH input
+		--RESET input
+		clk_50 : IN STD_LOGIC;
+		push_R_Bar : IN STD_LOGIC;
+		push_G_Bar : IN STD_LOGIC;
+		push_B_Bar : IN STD_LOGIC;
+		reset_Bar : IN STD_LOGIC;
+
+		-- VGA output
+		-- check DE1-SoC user manual for details
+		-- http://www.ee.ic.ac.uk/pcheung/teaching/E2_experiment/DE1-SoC_User_manual.pdf 
+		VGA_R : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) := "00000000";
+		VGA_G : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) := "00000000";
+		VGA_B : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) := "00000000";
+		VGA_CLK : OUT STD_LOGIC;
+		VGA_BLANK_N : OUT STD_LOGIC := '1'; --set VGA_BLANK_N to constant activelue of 1
+		VGA_HS : OUT STD_LOGIC;
+		VGA_VS : OUT STD_LOGIC;
+		VGA_SYNC_N : OUT STD_LOGIC := '0' --set VGA_SYNC_N to constant activelue of 0
+	);
+END VGA;
+ARCHITECTURE rtl OF VGA IS
+	-- Using SIGNAL to create intermediate state to avoid the use of BUFFER
+	SIGNAL h_pos : STD_LOGIC_VECTOR (10 DOWNTO 0) := "00000000000";
+	SIGNAL v_pos : STD_LOGIC_VECTOR (9 DOWNTO 0) := "0000000000";
+	SIGNAL r_sel, g_sel, b_sel : STD_LOGIC_VECTOR (1 DOWNTO 0);
+	SIGNAL push_R, push_G, push_B, reset, h_active, v_active, active : STD_LOGIC;
+
+	-- create 4 constant values for CASE block
+	CONSTANT S0 : STD_LOGIC_VECTOR (1 DOWNTO 0) := "00";
+	CONSTANT S1 : STD_LOGIC_VECTOR (1 DOWNTO 0) := "01";
+	CONSTANT S2 : STD_LOGIC_VECTOR (1 DOWNTO 0) := "10";
+	CONSTANT S3 : STD_LOGIC_VECTOR (1 DOWNTO 0) := "11";
+
+BEGIN
+	-- since PUSH button is active low (pull up register being used for PUSH buttons on the FPGA broad)
+	-- PUSH button 	-- active low
+	-- SWITCH 		-- active high
+	-- when using PUSH buttons press down for output
+	-- when using SWITCH set RESET switch high and pull down SW[3:0] for output 
+
+	-- change PUSH buttons input from active low to active high
+	-- (i.e. push down for output 1)
+	-- (SWITCH pull down for output 1)
+	push_R <= NOT push_R_Bar;
+	push_G <= NOT push_G_Bar;
+	push_B <= NOT push_B_Bar;
+	reset <= NOT reset_Bar;
+	-- Synchronous 50MHz onboard CLK with VGA CLK
+	VGA_CLK <= clk_50;
+
+	--Increment horizontal position in the active area  
+	Hcompt : PROCESS (clk_50)
+	BEGIN
+		IF rising_edge(clk_50) THEN
+			IF reset = '1' THEN
+				h_pos <= "00000000000";
+			ELSE
+				IF h_pos = 1039 THEN
+					h_pos <= "00000000000";
+
+				ELSE
+					h_pos <= h_pos + 1;
+
+				END IF;
+			END IF;
+		END IF;
+	END PROCESS Hcompt;
+
+	--Increment vertical position in the active area 
+	Vcompt : PROCESS (clk_50, h_pos, reset)
+	BEGIN
+		IF rising_edge(clk_50) THEN
+			IF reset = '1' THEN
+				v_pos <= "0000000000";
+			ELSE
+				IF (v_pos = 665 AND h_pos = 1039) THEN
+					v_pos <= "0000000000";
+				ELSE
+					IF h_pos = 1039 THEN
+						v_pos <= v_pos + 1;
+					END IF;
+				END IF;
+			END IF;
+		END IF;
+	END PROCESS Vcompt;
+
+	-- Horizontal synchronous goes low between front porch and back porch
+	HSync : PROCESS (h_pos)
+	BEGIN
+		IF h_pos >= 920 THEN
+			VGA_HS <= '0';
+		ELSE
+			VGA_HS <= '1';
+		END IF;
+	END PROCESS HSync;
+
+	-- Vertical synchronous goes low between front porch and back porch
+	VSync : PROCESS (v_pos)
+	BEGIN
+		IF v_pos >= 660 THEN
+			VGA_VS <= '0';
+		ELSE
+			VGA_VS <= '1';
+		END IF;
+	END PROCESS VSync;
+
+	-- Horizontal active area
+	HActive : PROCESS (h_pos)
+	BEGIN
+		IF (h_pos > 63 AND h_pos < 864) THEN
+			h_active <= '1';
+		ELSE
+			h_active <= '0';
+		END IF;
+	END PROCESS HActive;
+
+	-- Vertical active area
+	VActive : PROCESS (v_pos)
+	BEGIN
+		IF (v_pos > 22 AND v_pos < 623) THEN
+			v_active <= '1';
+		ELSE
+			v_active <= '0';
+		END IF;
+	END PROCESS VActive;
+
+	-- if both horizontal active and vertical active then active triggered
+	active <= h_active AND v_active;
+
+	-- if active is high then wait for RGB signal input
+	RGBOutput : PROCESS (active, push_R, push_G, push_B)
+	BEGIN
+		-- output RGB when in the active area of the screen and input signal (i.e. PUSH buttons / SWITCH) is HIGH
+		r_sel <= active & push_R;
+		g_sel <= active & push_G;
+		b_sel <= active & push_B;
+
+		-- Red case
+		CASE r_sel IS
+			WHEN S0 => VGA_R <= "00000000";
+			WHEN S1 => VGA_R <= "00000000";
+			WHEN S2 => VGA_R <= "00000000";
+			WHEN S3 => VGA_R <= "11111111";
+			WHEN OTHERS => VGA_R <= "00000000";
+		END CASE;
+
+		-- Green case
+		CASE g_sel IS
+			WHEN S0 => VGA_G <= "00000000";
+			WHEN S1 => VGA_G <= "00000000";
+			WHEN S2 => VGA_G <= "00000000";
+			WHEN S3 => VGA_G <= "11111111";
+			WHEN OTHERS => VGA_G <= "00000000";
+		END CASE;
+
+		-- Blue case
+		CASE b_sel IS
+			WHEN S0 => VGA_B <= "00000000";
+			WHEN S1 => VGA_B <= "00000000";
+			WHEN S2 => VGA_B <= "00000000";
+			WHEN S3 => VGA_B <= "11111111";
+			WHEN OTHERS => VGA_B <= "00000000";
+		END CASE;
+	END PROCESS RGBOutput;
+END rtl;

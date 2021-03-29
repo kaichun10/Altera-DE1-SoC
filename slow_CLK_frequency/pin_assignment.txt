@@ -1,0 +1,24 @@
+To,Location
+i_clock,PIN_AF14
+i_enable,PIN_AB12
+i_switch_1,PIN_AC12
+i_switch_10,PIN_AF9
+i_switch_20,PIN_AF10
+i_switch_30,PIN_AD11
+i_switch_40,PIN_AD12
+i_switch_50,PIN_AE11
+o_led_drive,PIN_V16
+seg1[0], PIN_AE26
+seg1[1], PIN_AE27
+seg1[2], PIN_AE28
+seg1[3], PIN_AG27
+seg1[4], PIN_AF28
+seg1[5], PIN_AG28
+seg1[6], PIN_AH28
+seg2[0], PIN_AJ29
+seg2[1], PIN_AH29
+seg2[2], PIN_AH30
+seg2[3], PIN_AG30
+seg2[4], PIN_AF29
+seg2[5], PIN_AF30
+seg2[6], PIN_AD27

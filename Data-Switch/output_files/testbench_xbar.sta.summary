@@ -1,0 +1,133 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'toplevel_clock'
+Slack : -4.957
+TNS   : -67.572
+
+Type  : Slow 1100mV 85C Model Setup 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : -2.313
+TNS   : -72.037
+
+Type  : Slow 1100mV 85C Model Hold 'toplevel_clock'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : 0.427
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'toplevel_clock'
+Slack : -0.412
+TNS   : -15.290
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : -0.394
+TNS   : -22.694
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:U2|enable'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:U3|enable'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'toplevel_clock'
+Slack : -5.091
+TNS   : -65.555
+
+Type  : Slow 1100mV 0C Model Setup 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : -2.204
+TNS   : -70.672
+
+Type  : Slow 1100mV 0C Model Hold 'toplevel_clock'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'toplevel_clock'
+Slack : -0.395
+TNS   : -16.439
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : -0.394
+TNS   : -22.455
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:U3|enable'
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:U2|enable'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'toplevel_clock'
+Slack : -3.264
+TNS   : -30.407
+
+Type  : Fast 1100mV 85C Model Setup 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : -1.212
+TNS   : -35.827
+
+Type  : Fast 1100mV 85C Model Hold 'toplevel_clock'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'toplevel_clock'
+Slack : -0.395
+TNS   : -2.939
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : 0.120
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:U3|enable'
+Slack : 0.414
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:U2|enable'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'toplevel_clock'
+Slack : -2.733
+TNS   : -25.584
+
+Type  : Fast 1100mV 0C Model Setup 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : -1.081
+TNS   : -30.457
+
+Type  : Fast 1100mV 0C Model Hold 'toplevel_clock'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : 0.278
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'toplevel_clock'
+Slack : -0.383
+TNS   : -2.900
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'stim_xbar:U1|r_TOGGLE_10HZ'
+Slack : 0.126
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:U2|enable'
+Slack : 0.431
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:U3|enable'
+Slack : 0.431
+TNS   : 0.000
+
+------------------------------------------------------------

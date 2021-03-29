@@ -1,0 +1,12 @@
+
+State Machine - |color_picker|controller:U1|next_state
+Name next_state.B_write next_state.G_write next_state.R_write 
+next_state.R_write 0 0 0 
+next_state.G_write 0 1 1 
+next_state.B_write 1 0 1 
+
+State Machine - |color_picker|controller:U1|present_state
+Name present_state.B_write present_state.G_write present_state.R_write 
+present_state.R_write 0 0 0 
+present_state.G_write 0 1 1 
+present_state.B_write 1 0 1 
