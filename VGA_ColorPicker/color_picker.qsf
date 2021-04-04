@@ -1,0 +1,155 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 09:09:49  March 26, 2021
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		color_picker_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY color_picker
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:09:49  MARCH 26, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name VHDL_FILE color_picker.vhd
+set_global_assignment -name VHDL_FILE seven_seg.vhd
+set_global_assignment -name VHDL_FILE controller.vhd
+set_global_assignment -name VHDL_FILE basic_RAM.vhd
+set_location_assignment PIN_AF14 -to clk_50
+set_location_assignment PIN_W15 -to load_bar
+set_location_assignment PIN_Y16 -to enable_Bar
+set_location_assignment PIN_AF9 -to data_In[0]
+set_location_assignment PIN_AF10 -to data_In[1]
+set_location_assignment PIN_AD11 -to data_In[2]
+set_location_assignment PIN_AD12 -to data_In[3]
+set_location_assignment PIN_AE11 -to data_In[4]
+set_location_assignment PIN_AC9 -to data_In[5]
+set_location_assignment PIN_AD10 -to data_In[6]
+set_location_assignment PIN_AE12 -to data_In[7]
+set_location_assignment PIN_AD10 -to data_In[8]
+set_location_assignment PIN_AE12 -to data_In[9]
+set_location_assignment PIN_AA24 -to seven_seg_R_0[0]
+set_location_assignment PIN_Y23 -to seven_seg_R_0[1]
+set_location_assignment PIN_Y24 -to seven_seg_R_0[2]
+set_location_assignment PIN_W22 -to seven_seg_R_0[3]
+set_location_assignment PIN_W24 -to seven_seg_R_0[4]
+set_location_assignment PIN_V23 -to seven_seg_R_0[5]
+set_location_assignment PIN_W25 -to seven_seg_R_0[6]
+set_location_assignment PIN_V25 -to seven_seg_R_1[0]
+set_location_assignment PIN_AA28 -to seven_seg_R_1[1]
+set_location_assignment PIN_Y27 -to seven_seg_R_1[2]
+set_location_assignment PIN_AB27 -to seven_seg_R_1[3]
+set_location_assignment PIN_AB26 -to seven_seg_R_1[4]
+set_location_assignment PIN_AA26 -to seven_seg_R_1[5]
+set_location_assignment PIN_AA25 -to seven_seg_R_1[6]
+set_location_assignment PIN_AB23 -to seven_seg_G_0[0]
+set_location_assignment PIN_AE29 -to seven_seg_G_0[1]
+set_location_assignment PIN_AD29 -to seven_seg_G_0[2]
+set_location_assignment PIN_AC28 -to seven_seg_G_0[3]
+set_location_assignment PIN_AD30 -to seven_seg_G_0[4]
+set_location_assignment PIN_AC29 -to seven_seg_G_0[5]
+set_location_assignment PIN_AC30 -to seven_seg_G_0[6]
+set_location_assignment PIN_AD26 -to seven_seg_G_1[0]
+set_location_assignment PIN_AC27 -to seven_seg_G_1[1]
+set_location_assignment PIN_AD25 -to seven_seg_G_1[2]
+set_location_assignment PIN_AC25 -to seven_seg_G_1[3]
+set_location_assignment PIN_AB28 -to seven_seg_G_1[4]
+set_location_assignment PIN_AB25 -to seven_seg_G_1[5]
+set_location_assignment PIN_AB22 -to seven_seg_G_1[6]
+set_location_assignment PIN_AE26 -to seven_seg_B_0[0]
+set_location_assignment PIN_AE27 -to seven_seg_B_0[1]
+set_location_assignment PIN_AE28 -to seven_seg_B_0[2]
+set_location_assignment PIN_AG27 -to seven_seg_B_0[3]
+set_location_assignment PIN_AF28 -to seven_seg_B_0[4]
+set_location_assignment PIN_AG28 -to seven_seg_B_0[5]
+set_location_assignment PIN_AH28 -to seven_seg_B_0[6]
+set_location_assignment PIN_AJ29 -to seven_seg_B_1[0]
+set_location_assignment PIN_AH29 -to seven_seg_B_1[1]
+set_location_assignment PIN_AH30 -to seven_seg_B_1[2]
+set_location_assignment PIN_AG30 -to seven_seg_B_1[3]
+set_location_assignment PIN_AF29 -to seven_seg_B_1[4]
+set_location_assignment PIN_AF30 -to seven_seg_B_1[5]
+set_location_assignment PIN_AD27 -to seven_seg_B_1[6]
+set_location_assignment PIN_A11 -to VGA_CLK
+set_location_assignment PIN_B11 -to VGA_HS
+set_location_assignment PIN_D11 -to VGA_VS
+set_location_assignment PIN_F10 -to VGA_BLANK_N
+set_location_assignment PIN_C10 -to VGA_SYNC_N
+set_location_assignment PIN_A13 -to VGA_R[0]
+set_location_assignment PIN_C13 -to VGA_R[1]
+set_location_assignment PIN_E13 -to VGA_R[2]
+set_location_assignment PIN_B12 -to VGA_R[3]
+set_location_assignment PIN_C12 -to VGA_R[4]
+set_location_assignment PIN_D12 -to VGA_R[5]
+set_location_assignment PIN_E12 -to VGA_R[6]
+set_location_assignment PIN_F13 -to VGA_R[7]
+set_location_assignment PIN_J9 -to VGA_G[0]
+set_location_assignment PIN_J10 -to VGA_G[1]
+set_location_assignment PIN_H12 -to VGA_G[2]
+set_location_assignment PIN_G10 -to VGA_G[3]
+set_location_assignment PIN_G11 -to VGA_G[4]
+set_location_assignment PIN_G12 -to VGA_G[5]
+set_location_assignment PIN_F11 -to VGA_G[6]
+set_location_assignment PIN_E11 -to VGA_G[7]
+set_location_assignment PIN_B13 -to VGA_B[0]
+set_location_assignment PIN_G13 -to VGA_B[1]
+set_location_assignment PIN_H13 -to VGA_B[2]
+set_location_assignment PIN_F14 -to VGA_B[3]
+set_location_assignment PIN_H14 -to VGA_B[4]
+set_location_assignment PIN_F15 -to VGA_B[5]
+set_location_assignment PIN_G15 -to VGA_B[6]
+set_location_assignment PIN_J14 -to VGA_B[7]
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AA15 -to reset_Bar
+set_location_assignment PIN_AB12 -to state_switch[0]
+set_location_assignment PIN_AC12 -to state_switch[1]
+set_location_assignment PIN_V16 -to LED_RAM_ADDR[0]
+set_location_assignment PIN_W16 -to LED_RAM_ADDR[1]
+set_location_assignment PIN_V17 -to LED_RAM_DATA_IN[0]
+set_location_assignment PIN_V18 -to LED_RAM_DATA_IN[1]
+set_location_assignment PIN_W17 -to LED_RAM_DATA_IN[2]
+set_location_assignment PIN_W19 -to LED_RAM_DATA_IN[3]
+set_location_assignment PIN_Y19 -to LED_RAM_DATA_IN[4]
+set_location_assignment PIN_W20 -to LED_RAM_DATA_IN[5]
+set_location_assignment PIN_W21 -to LED_RAM_DATA_IN[6]
+set_location_assignment PIN_Y21 -to LED_RAM_DATA_IN[7]
+set_location_assignment PIN_W15 -to load_Bar
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
