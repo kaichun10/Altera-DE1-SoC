@@ -1,5 +1,5 @@
 Analysis & Synthesis report for color_picker
-Sun Apr 04 03:06:53 2021
+Sun Apr 04 14:33:25 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -16,11 +16,10 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   8. State Machine - |color_picker|controller:U1|next_state
   9. State Machine - |color_picker|controller:U1|present_state
  10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -47,7 +46,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr 04 03:06:53 2021       ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr 04 14:33:25 2021       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; color_picker                                ;
 ; Top-level Entity Name           ; color_picker                                ;
@@ -188,14 +187,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 90           ;
+; Estimate of Logic utilization (ALMs needed) ; 82           ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 165          ;
+; Combinational ALUT usage for logic          ; 117          ;
 ;     -- 7 input functions                    ; 0            ;
 ;     -- 6 input functions                    ; 2            ;
 ;     -- 5 input functions                    ; 33           ;
 ;     -- 4 input functions                    ; 50           ;
-;     -- <=3 input functions                  ; 80           ;
+;     -- <=3 input functions                  ; 32           ;
 ;                                             ;              ;
 ; Dedicated logic registers                   ; 110          ;
 ;                                             ;              ;
@@ -205,8 +204,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_50~input ;
 ; Maximum fan-out                             ; 111          ;
-; Total fan-out                               ; 971          ;
-; Average fan-out                             ; 2.09         ;
+; Total fan-out                               ; 923          ;
+; Average fan-out                             ; 2.21         ;
 +---------------------------------------------+--------------+
 
 
@@ -215,8 +214,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+--------------+--------------+
-; |color_picker              ; 165 (63)            ; 110 (21)                  ; 0                 ; 0          ; 95   ; 0            ; |color_picker               ; color_picker ; work         ;
-;    |basic_RAM:U2|          ; 51 (51)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |color_picker|basic_RAM:U2  ; basic_RAM    ; work         ;
+; |color_picker              ; 117 (63)            ; 110 (21)                  ; 0                 ; 0          ; 95   ; 0            ; |color_picker               ; color_picker ; work         ;
+;    |basic_RAM:U2|          ; 3 (3)               ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |color_picker|basic_RAM:U2  ; basic_RAM    ; work         ;
 ;    |controller:U1|         ; 9 (9)               ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |color_picker|controller:U1 ; controller   ; work         ;
 ;    |seven_seg:U3|          ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U3  ; seven_seg    ; work         ;
 ;    |seven_seg:U4|          ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U4  ; seven_seg    ; work         ;
@@ -264,39 +263,6 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------+
-; Inverted Register Statistics                      ;
-+-----------------------------------------+---------+
-; Inverted Register                       ; Fan out ;
-+-----------------------------------------+---------+
-; basic_RAM:U2|RAM[0][0]                  ; 1       ;
-; basic_RAM:U2|RAM[0][1]                  ; 1       ;
-; basic_RAM:U2|RAM[0][2]                  ; 1       ;
-; basic_RAM:U2|RAM[0][3]                  ; 1       ;
-; basic_RAM:U2|RAM[0][4]                  ; 1       ;
-; basic_RAM:U2|RAM[0][5]                  ; 1       ;
-; basic_RAM:U2|RAM[0][6]                  ; 1       ;
-; basic_RAM:U2|RAM[0][7]                  ; 1       ;
-; basic_RAM:U2|RAM[1][0]                  ; 1       ;
-; basic_RAM:U2|RAM[1][1]                  ; 1       ;
-; basic_RAM:U2|RAM[1][2]                  ; 1       ;
-; basic_RAM:U2|RAM[1][3]                  ; 1       ;
-; basic_RAM:U2|RAM[1][4]                  ; 1       ;
-; basic_RAM:U2|RAM[1][5]                  ; 1       ;
-; basic_RAM:U2|RAM[1][6]                  ; 1       ;
-; basic_RAM:U2|RAM[1][7]                  ; 1       ;
-; basic_RAM:U2|RAM[2][0]                  ; 1       ;
-; basic_RAM:U2|RAM[2][1]                  ; 1       ;
-; basic_RAM:U2|RAM[2][2]                  ; 1       ;
-; basic_RAM:U2|RAM[2][3]                  ; 1       ;
-; basic_RAM:U2|RAM[2][4]                  ; 1       ;
-; basic_RAM:U2|RAM[2][5]                  ; 1       ;
-; basic_RAM:U2|RAM[2][6]                  ; 1       ;
-; basic_RAM:U2|RAM[2][7]                  ; 1       ;
-; Total number of inverted registers = 24 ;         ;
-+-----------------------------------------+---------+
-
-
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
@@ -319,12 +285,12 @@ Encoding Type:  One-Hot
 ;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 11                          ;
 ;     plain             ; 30                          ;
-; arriav_lcell_comb     ; 173                         ;
+; arriav_lcell_comb     ; 125                         ;
 ;     arith             ; 21                          ;
 ;         1 data inputs ; 21                          ;
-;     normal            ; 152                         ;
+;     normal            ; 104                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 55                          ;
+;         1 data inputs ; 7                           ;
 ;         3 data inputs ; 10                          ;
 ;         4 data inputs ; 50                          ;
 ;         5 data inputs ; 33                          ;
@@ -332,7 +298,7 @@ Encoding Type:  One-Hot
 ; boundary_port         ; 95                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.50                        ;
+; Average LUT depth     ; 1.47                        ;
 +-----------------------+-----------------------------+
 
 
@@ -351,46 +317,46 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Apr 04 03:06:35 2021
+    Info: Processing started: Sun Apr 04 14:33:17 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off color_picker -c color_picker
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file color_picker.vhd
-    Info (12022): Found design unit 1: color_picker-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 62
+    Info (12022): Found design unit 1: color_picker-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 71
     Info (12023): Found entity 1: color_picker File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file seven_seg.vhd
-    Info (12022): Found design unit 1: seven_seg-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd Line: 30
-    Info (12023): Found entity 1: seven_seg File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd Line: 21
+    Info (12022): Found design unit 1: seven_seg-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd Line: 35
+    Info (12023): Found entity 1: seven_seg File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/seven_seg.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
-    Info (12022): Found design unit 1: controller-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/controller.vhd Line: 43
+    Info (12022): Found design unit 1: controller-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/controller.vhd Line: 48
     Info (12023): Found entity 1: controller File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/controller.vhd Line: 20
 Info (12021): Found 2 design units, including 1 entities, in source file basic_ram.vhd
-    Info (12022): Found design unit 1: basic_RAM-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 39
+    Info (12022): Found design unit 1: basic_RAM-rtl File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 49
     Info (12023): Found entity 1: basic_RAM File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 22
 Info (12127): Elaborating entity "color_picker" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at color_picker.vhd(58): used explicit default value for signal "VGA_BLANK_N" because signal was never assigned a value File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 58
-Warning (10540): VHDL Signal Declaration warning at color_picker.vhd(59): used explicit default value for signal "VGA_SYNC_N" because signal was never assigned a value File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 59
-Warning (10492): VHDL Process Statement warning at color_picker.vhd(305): signal "VGA_OUPUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 305
-Warning (10492): VHDL Process Statement warning at color_picker.vhd(311): signal "R_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 311
-Warning (10492): VHDL Process Statement warning at color_picker.vhd(312): signal "G_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 312
-Warning (10492): VHDL Process Statement warning at color_picker.vhd(313): signal "B_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 313
-Info (12128): Elaborating entity "controller" for hierarchy "controller:U1" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 156
-Info (12128): Elaborating entity "basic_RAM" for hierarchy "basic_RAM:U2" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 179
-Warning (10541): VHDL Signal Declaration warning at basic_RAM.vhd(28): used implicit default value for signal "LED_RAM_DATA_IN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 28
-Warning (10873): Using initial value X (don't care) for net "LED_RAM_ADDR[1]" at basic_RAM.vhd(27) File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 27
-Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:U3" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 196
+Warning (10540): VHDL Signal Declaration warning at color_picker.vhd(66): used explicit default value for signal "VGA_BLANK_N" because signal was never assigned a value File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 66
+Warning (10540): VHDL Signal Declaration warning at color_picker.vhd(68): used explicit default value for signal "VGA_SYNC_N" because signal was never assigned a value File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(339): signal "VGA_OUPUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 339
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(346): signal "R_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 346
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(347): signal "G_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 347
+Warning (10492): VHDL Process Statement warning at color_picker.vhd(348): signal "B_RAM_DATA_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 348
+Info (12128): Elaborating entity "controller" for hierarchy "controller:U1" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 189
+Info (12128): Elaborating entity "basic_RAM" for hierarchy "basic_RAM:U2" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 209
+Warning (10541): VHDL Signal Declaration warning at basic_RAM.vhd(34): used implicit default value for signal "LED_RAM_DATA_IN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 34
+Warning (10873): Using initial value X (don't care) for net "LED_RAM[1]" at basic_RAM.vhd(31) File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/basic_RAM.vhd Line: 31
+Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:U3" File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 230
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LED_RAM_ADDR[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 35
-    Warning (13410): Pin "LED_RAM_DATA_IN[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[4]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[6]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "LED_RAM_DATA_IN[7]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 36
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 58
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 59
+    Warning (13410): Pin "LED_RAM[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 37
+    Warning (13410): Pin "LED_RAM_DATA_IN[0]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[1]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[2]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[3]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[4]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[5]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[6]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "LED_RAM_DATA_IN[7]" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 38
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 66
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/color_picker.vhd Line: 68
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -399,9 +365,9 @@ Info (21057): Implemented 297 device resources after synthesis - the final resou
     Info (21059): Implemented 81 output pins
     Info (21061): Implemented 202 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 4849 megabytes
-    Info: Processing ended: Sun Apr 04 03:06:53 2021
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 4842 megabytes
+    Info: Processing ended: Sun Apr 04 14:33:25 2021
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
 
 

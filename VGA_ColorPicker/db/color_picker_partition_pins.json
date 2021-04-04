@@ -4,7 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "LED_RAM_ADDR[0]",
+					"name" : "LED_RAM[0]",
 					"strict" : false
 				},
 				{

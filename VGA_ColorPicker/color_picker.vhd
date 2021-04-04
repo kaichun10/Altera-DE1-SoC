@@ -27,17 +27,22 @@ ENTITY color_picker IS
 		--RESET input
 		clk_50 : IN STD_LOGIC;
 
-		-- since input button 
+		-- since input button is Active-High when NOT pressed and Active-Low when pressed down
+		-- Active-High when button is pressed down after reverse
 		reset_Bar : IN STD_LOGIC;
 		load_Bar : IN STD_LOGIC;
 		enable_Bar : IN STD_LOGIC;
 
-		LED_RAM : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- Address to write/read RAM ------------------------
-		LED_RAM_DATA_IN : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data to write into RAM ------------------------
+		-- LED used for debugging
+		LED_RAM : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+		LED_RAM_DATA_IN : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 
+		-- STATE-Switch controlling the RGB state for the FSM
 		state_switch : IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+		-- 8-bit Data input of single color channel from Switch[9:2]
 		data_in : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
 
+		-- 6-Digit Hexadecimal output for displaying the 24-bit RGB color on 7-Segment LED display
 		seven_seg_R_0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		seven_seg_R_1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		seven_seg_G_0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
@@ -45,25 +50,32 @@ ENTITY color_picker IS
 		seven_seg_B_0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		seven_seg_B_1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 
-		-- VGA output
+		-- 8-bit VGA output of RGB channel
 		VGA_R : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) := "00000000";
 		VGA_G : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) := "00000000";
 		VGA_B : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) := "00000000";
 
+		-- VGA CLK synchronous to CLK_50 
 		VGA_CLK : OUT STD_LOGIC;
 
+		-- VGA horizontal and vertical synchronous
 		VGA_HS : OUT STD_LOGIC;
 		VGA_VS : OUT STD_LOGIC;
 
-		VGA_BLANK_N : OUT STD_LOGIC := '1'; --set VGA_BLANK_N to constant activelue of 1
-		VGA_SYNC_N : OUT STD_LOGIC := '0' --set VGA_SYNC_N to constant activelue of 0
+		-- Set VGA_BLANK_N to constant activelue of 1
+		VGA_BLANK_N : OUT STD_LOGIC := '1';
+		-- Set VGA_SYNC_N to constant activelue of 0
+		VGA_SYNC_N : OUT STD_LOGIC := '0'
 	);
 END color_picker;
 ARCHITECTURE rtl OF color_picker IS
 
+	-- Defining COMPONENT
 	COMPONENT controller
 		PORT (
+			-- CLK_50 from top level entity
 			clk : IN STD_LOGIC;
+			-- Enable signal for writing data into BRAM
 			enable : IN STD_LOGIC;
 
 			-- Input data from switch
@@ -73,9 +85,12 @@ ARCHITECTURE rtl OF color_picker IS
 			state_switch : IN STD_LOGIC_VECTOR (1 DOWNTO 0);
 
 			-- Store RGB data into RAM
-			RAM_WR : OUT STD_LOGIC; -- Write enable 
-			RAM_ADDR : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- Address to write/read RAM
-			RAM_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data to write into RAM
+			-- Write enable
+			RAM_WR : OUT STD_LOGIC;
+			-- Address to write data into the BRAM
+			RAM_ADDR : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			-- 8-bit single color channel output for the BRAM
+			RAM_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 
 			-- 7 seg display output for RGB values in hexadecimal
 			R_data_out : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -86,91 +101,106 @@ ARCHITECTURE rtl OF color_picker IS
 
 	COMPONENT basic_RAM
 		PORT (
-			RAM_CLOCK : IN STD_LOGIC; -- clock input for RAM
-			RAM_WR : IN STD_LOGIC; -- Write enable 
+			-- CLK (need to synchronous to CLK_50)
+			RAM_CLOCK : IN STD_LOGIC;
 
-			LED_RAM : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- Address to write/read RAM ------------------------
-			LED_RAM_DATA_IN : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data to write into RAM ------------------------
+			-- Enable for writing 
+			RAM_WR : IN STD_LOGIC;
 
-			RAM_ADDR : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- Address to write/read RAM
+			-- LED indicator for displaying write instruction
+			LED_RAM : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-			RAM_DATA_IN : IN STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data to write into RAM
+			-- LED indicator for debugging
+			LED_RAM_DATA_IN : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-			RAM_R_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data output of RAM
-			RAM_G_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- Data output of RAM
-			RAM_B_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- Data output of RAM
+			-- Address to write data into the BRAM
+			RAM_ADDR : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+
+			-- 8-bit single color channel input for the BRAM
+			RAM_DATA_IN : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+			-- RGB data output from the BRAM
+			RAM_R_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			RAM_G_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			RAM_B_DATA_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 		);
 	END COMPONENT;
 
 	COMPONENT seven_seg
 		PORT (
+			-- Raw RGB data input to the 7-Seg module
 			data_in : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
 
-			seven_seg_0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0); -- digit_ones
-			seven_seg_1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) -- digit_sixteens
+			-- 7-Seg LEDs for displaying:
+			-- Digit_ones
+			seven_seg_0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			-- Digit_sixteens
+			seven_seg_1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 		);
 	END COMPONENT;
 
 	-- Using SIGNAL to create intermediate state to avoid the use of BUFFER
 	SIGNAL h_pos : STD_LOGIC_VECTOR (10 DOWNTO 0) := "00000000000";
 	SIGNAL v_pos : STD_LOGIC_VECTOR (9 DOWNTO 0) := "0000000000";
-	SIGNAL VGA_OUPUT : STD_LOGIC_VECTOR (1 DOWNTO 0);
-	SIGNAL reset, load, enable, h_active, v_active, active : STD_LOGIC;
-	SIGNAL toplevel_clock : STD_LOGIC;
 
+	-- Defining VGA Output Enable
+	SIGNAL VGA_OUPUT : STD_LOGIC_VECTOR (1 DOWNTO 0);
+
+	-- Defining VGA reset load enable 
+	-- Defining VGA h_active v_active active
+	SIGNAL reset, load, enable, h_active, v_active, active : STD_LOGIC;
+
+	-- Definging RAM Write signal RAM Address 
+	-- and Data to be write into BRAM
 	SIGNAL RAM_WR : STD_LOGIC;
 	SIGNAL RAM_ADDR : STD_LOGIC_VECTOR(1 DOWNTO 0);
 	SIGNAL RAM_DATA_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-	-- 7 seg display output for RGB values in hexadecimal
+	-- Input for 7-Seg display decoder
 	SIGNAL R_data_out : STD_LOGIC_VECTOR (7 DOWNTO 0);
 	SIGNAL G_data_out : STD_LOGIC_VECTOR (7 DOWNTO 0);
 	SIGNAL B_data_out : STD_LOGIC_VECTOR (7 DOWNTO 0);
 
-	-- RAM Data Output to 7 seg display output
+	-- RAM Data output to VGA display
 	SIGNAL R_RAM_DATA_OUT : STD_LOGIC_VECTOR (7 DOWNTO 0);
 	SIGNAL G_RAM_DATA_OUT : STD_LOGIC_VECTOR (7 DOWNTO 0);
 	SIGNAL B_RAM_DATA_OUT : STD_LOGIC_VECTOR (7 DOWNTO 0);
 
-	-- create 4 constant values for CASE block
+	-- Create constant values for CASE block
 	CONSTANT S0 : STD_LOGIC_VECTOR (1 DOWNTO 0) := "10";
 	CONSTANT S1 : STD_LOGIC_VECTOR (1 DOWNTO 0) := "11";
 
 BEGIN
 
-	-- since PUSH button is active low (pull up register being used for PUSH buttons on the FPGA broad)
+	-- Since PUSH button is active low ( because pull up register being used for PUSH buttons on the FPGA broad)
 	-- PUSH button 	-- active low
-	-- SWITCH 		-- active high
 	-- when using PUSH buttons press down for output
-	-- when using SWITCH set RESET switch high and pull down SW[3:0] for output 
 
 	-- change PUSH buttons input from active low to active high
 	-- (i.e. push down for output 1)
-	-- (SWITCH pull down for output 1)
 	reset <= NOT reset_Bar;
 	load <= NOT load_Bar;
 	enable <= NOT enable_Bar;
+
 	-- Synchronous 50MHz onboard CLK with VGA CLK
 	VGA_CLK <= clk_50;
 
+	-- Defining PORT MAP
 	U1 : controller
 	PORT MAP(
 		clk => clk_50,
-
 		enable => enable,
 
 		-- Input data from switch
 		data_in => data_in,
-
 		-- Control RGB write state
 		state_switch => state_switch,
-
 		-- Store RGB data into RAM
 		RAM_WR => RAM_WR,
 		RAM_ADDR => RAM_ADDR,
 		RAM_DATA_OUT => RAM_DATA_OUT,
 
-		-- 7 seg display output for RGB values in hexadecimal
+		-- Input for 7-Seg display decoder
 		R_data_out => R_data_out,
 		G_data_out => G_data_out,
 		B_data_out => B_data_out
@@ -178,16 +208,20 @@ BEGIN
 
 	U2 : basic_RAM
 	PORT MAP(
+		-- Synchronous BRAM CLK with onboard 50MHz CLK
 		RAM_CLOCK => clk_50,
 		RAM_WR => RAM_WR,
 
-		LED_RAM => LED_RAM, -- Address to write/read RAM ------------------------
-		LED_RAM_DATA_IN => LED_RAM_DATA_IN, -- Data to write into RAM ------------------------
+		LED_RAM => LED_RAM,
+		LED_RAM_DATA_IN => LED_RAM_DATA_IN,
 
+		-- RAM Address
 		RAM_ADDR => RAM_ADDR,
 
+		-- Input Data for RAM
 		RAM_DATA_IN => RAM_DATA_OUT,
 
+		-- RAM Data output to VGA display
 		RAM_R_DATA_OUT => R_RAM_DATA_OUT,
 		RAM_G_DATA_OUT => G_RAM_DATA_OUT,
 		RAM_B_DATA_OUT => B_RAM_DATA_OUT
@@ -195,24 +229,24 @@ BEGIN
 
 	U3 : seven_seg
 	PORT MAP(
+		-- Input R Data for 7-Seg
 		data_in => R_data_out,
-
 		seven_seg_0 => seven_seg_R_0,
 		seven_seg_1 => seven_seg_R_1
 	);
 
 	U4 : seven_seg
 	PORT MAP(
+		-- Input G Data for 7-Seg
 		data_in => G_data_out,
-
 		seven_seg_0 => seven_seg_G_0,
 		seven_seg_1 => seven_seg_G_1
 	);
 
 	U5 : seven_seg
 	PORT MAP(
+		-- Input B Data for 7-Seg
 		data_in => B_data_out,
-
 		seven_seg_0 => seven_seg_B_0,
 		seven_seg_1 => seven_seg_B_1
 	);
@@ -293,13 +327,13 @@ BEGIN
 		END IF;
 	END PROCESS VActive;
 
-	-- if both horizontal active and vertical active then active triggered
+	-- If both horizontal active and vertical active then active triggered
 	active <= h_active AND v_active;
 
-	-- if active is high then wait for RGB signal input
+	-- If active is high then wait for RGB signal input
 	RGBOutput : PROCESS (active, load)
 	BEGIN
-		-- output RGB when in the active area of the screen and input signal (i.e. PUSH buttons / SWITCH) is HIGH
+		-- Output RGB when in the active area of the screen and input signal (i.e. PUSH buttons) is HIGH
 		VGA_OUPUT <= active & load;
 
 		CASE VGA_OUPUT IS
@@ -308,6 +342,7 @@ BEGIN
 				VGA_G <= "00000000";
 				VGA_B <= "00000000";
 			WHEN S1 =>
+				-- HIGH-STATE
 				VGA_R <= R_RAM_DATA_OUT;
 				VGA_G <= G_RAM_DATA_OUT;
 				VGA_B <= B_RAM_DATA_OUT;

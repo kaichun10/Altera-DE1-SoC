@@ -1,11 +1,11 @@
-Fitter Status : Successful - Sun Apr 04 03:07:34 2021
+Fitter Status : Successful - Sun Apr 04 14:34:03 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : color_picker
 Top-level Entity Name : color_picker
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 85 / 32,070 ( < 1 % )
+Logic utilization (in ALMs) : 61 / 32,070 ( < 1 % )
 Total registers : 110
 Total pins : 95 / 457 ( 21 % )
 Total virtual pins : 0

@@ -900,7 +900,7 @@ GND                          : V12       : gnd    :                   :         
 VCC                          : V13       : power  :                   : 1.1V    :           :                
 GND                          : V14       : gnd    :                   :         :           :                
 VCC                          : V15       : power  :                   : 1.1V    :           :                
-LED_RAM_ADDR[0]              : V16       : output : 2.5 V             :         : 4A        : Y              
+LED_RAM[0]                   : V16       : output : 2.5 V             :         : 4A        : Y              
 LED_RAM_DATA_IN[0]           : V17       : output : 2.5 V             :         : 4A        : Y              
 LED_RAM_DATA_IN[1]           : V18       : output : 2.5 V             :         : 4A        : Y              
 GND                          : V19       : gnd    :                   :         :           :                
@@ -930,7 +930,7 @@ VCC                          : W12       : power  :                   : 1.1V    
 GND                          : W13       : gnd    :                   :         :           :                
 VCC                          : W14       : power  :                   : 1.1V    :           :                
 load_Bar                     : W15       : input  : 2.5 V             :         : 3B        : Y              
-LED_RAM_ADDR[1]              : W16       : output : 2.5 V             :         : 4A        : Y              
+LED_RAM[1]                   : W16       : output : 2.5 V             :         : 4A        : Y              
 LED_RAM_DATA_IN[2]           : W17       : output : 2.5 V             :         : 4A        : Y              
 GND                          : W18       : gnd    :                   :         :           :                
 LED_RAM_DATA_IN[3]           : W19       : output : 2.5 V             :         : 4A        : Y              

@@ -1,5 +1,5 @@
 Fitter report for color_picker
-Sun Apr 04 03:07:34 2021
+Sun Apr 04 14:34:03 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -64,14 +64,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Sun Apr 04 03:07:34 2021       ;
+; Fitter Status                   ; Successful - Sun Apr 04 14:34:03 2021       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; color_picker                                ;
 ; Top-level Entity Name           ; color_picker                                ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 85 / 32,070 ( < 1 % )                       ;
+; Logic utilization (in ALMs)     ; 61 / 32,070 ( < 1 % )                       ;
 ; Total registers                 ; 110                                         ;
 ; Total pins                      ; 95 / 457 ( 21 % )                           ;
 ; Total virtual pins              ; 0                                           ;
@@ -159,9 +159,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.8%      ;
-;     Processor 3            ;   0.8%      ;
-;     Processor 4            ;   0.8%      ;
+;     Processor 2            ;   0.5%      ;
+;     Processor 3            ;   0.5%      ;
+;     Processor 4            ;   0.5%      ;
 +----------------------------+-------------+
 
 
@@ -174,15 +174,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Ignored Assignments                                                                    ;
-+----------+----------------+--------------+------------+---------------+----------------+
-; Name     ; Ignored Entity ; Ignored From ; Ignored To ; Ignored Value ; Ignored Source ;
-+----------+----------------+--------------+------------+---------------+----------------+
-; Location ;                ;              ; data_In[8] ; PIN_AD10      ; QSF Assignment ;
-; Location ;                ;              ; data_In[9] ; PIN_AE12      ; QSF Assignment ;
-; Location ;                ;              ; load_bar   ; PIN_W15       ; QSF Assignment ;
-+----------+----------------+--------------+------------+---------------+----------------+
++---------------------------------------------------------------------------------------------+
+; Ignored Assignments                                                                         ;
++----------+----------------+--------------+-----------------+---------------+----------------+
+; Name     ; Ignored Entity ; Ignored From ; Ignored To      ; Ignored Value ; Ignored Source ;
++----------+----------------+--------------+-----------------+---------------+----------------+
+; Location ;                ;              ; LED_RAM_ADDR[0] ; PIN_V16       ; QSF Assignment ;
+; Location ;                ;              ; LED_RAM_ADDR[1] ; PIN_W16       ; QSF Assignment ;
+; Location ;                ;              ; data_In[8]      ; PIN_AD10      ; QSF Assignment ;
+; Location ;                ;              ; data_In[9]      ; PIN_AE12      ; QSF Assignment ;
+; Location ;                ;              ; load_bar        ; PIN_W15       ; QSF Assignment ;
++----------+----------------+--------------+-----------------+---------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -191,8 +193,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 467 ) ; 0.00 % ( 0 / 467 )         ; 0.00 % ( 0 / 467 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 467 ) ; 0.00 % ( 0 / 467 )         ; 0.00 % ( 0 / 467 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 419 ) ; 0.00 % ( 0 / 419 )         ; 0.00 % ( 0 / 419 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 419 ) ; 0.00 % ( 0 / 419 )         ; 0.00 % ( 0 / 419 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -215,7 +217,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 467 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 419 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -231,14 +233,14 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 85 / 32,070        ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 85                 ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 98 / 32,070        ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 47                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 43                 ;       ;
-;         [c] ALMs used for registers                         ; 8                  ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 61 / 32,070        ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 61                 ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 84 / 32,070        ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 34                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 30                 ;       ;
+;         [c] ALMs used for registers                         ; 20                 ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 13 / 32,070        ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 23 / 32,070        ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32,070         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -247,22 +249,22 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 21 / 3,207         ; < 1 % ;
-;     -- Logic LABs                                           ; 21                 ;       ;
+; Total LABs:  partially or completely used                   ; 16 / 3,207         ; < 1 % ;
+;     -- Logic LABs                                           ; 16                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 166                ;       ;
+; Combinational ALUT usage for logic                          ; 118                ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
 ;     -- 6 input functions                                    ; 2                  ;       ;
 ;     -- 5 input functions                                    ; 33                 ;       ;
 ;     -- 4 input functions                                    ; 50                 ;       ;
-;     -- <=3 input functions                                  ; 81                 ;       ;
-; Combinational ALUT usage for route-throughs                 ; 3                  ;       ;
+;     -- <=3 input functions                                  ; 33                 ;       ;
+; Combinational ALUT usage for route-throughs                 ; 10                 ;       ;
 ;                                                             ;                    ;       ;
 ; Dedicated logic registers                                   ; 110                ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 109 / 64,140       ; < 1 % ;
-;         -- Secondary logic registers                        ; 1 / 64,140         ; < 1 % ;
+;         -- Primary logic registers                          ; 108 / 64,140       ; < 1 % ;
+;         -- Secondary logic registers                        ; 2 / 64,140         ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
 ;         -- Design implementation registers                  ; 110                ;       ;
 ;         -- Routing optimization registers                   ; 0                  ;       ;
@@ -320,12 +322,12 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 ; Oscillator blocks                                           ; 0 / 1              ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 0.2% / 0.2% / 0.4% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 1.4% / 1.4% / 1.7% ;       ;
+; Average interconnect usage (total/H/V)                      ; 0.3% / 0.2% / 0.5% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 1.3% / 0.9% / 2.5% ;       ;
 ; Maximum fan-out                                             ; 111                ;       ;
 ; Highest non-global fan-out                                  ; 28                 ;       ;
-; Total fan-out                                               ; 975                ;       ;
-; Average fan-out                                             ; 2.07               ;       ;
+; Total fan-out                                               ; 934                ;       ;
+; Average fan-out                                             ; 2.18               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
@@ -334,14 +336,14 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 85 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 85                    ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 98 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 47                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 43                    ; 0                              ;
-;         [c] ALMs used for registers                         ; 8                     ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 61 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 61                    ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 84 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 34                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 30                    ; 0                              ;
+;         [c] ALMs used for registers                         ; 20                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 13 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 23 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )     ; 0 / 32070 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
@@ -350,25 +352,25 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 21 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 21                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 16 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 16                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 166                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 118                   ; 0                              ;
 ;     -- 7 input functions                                    ; 0                     ; 0                              ;
 ;     -- 6 input functions                                    ; 2                     ; 0                              ;
 ;     -- 5 input functions                                    ; 33                    ; 0                              ;
 ;     -- 4 input functions                                    ; 50                    ; 0                              ;
-;     -- <=3 input functions                                  ; 81                    ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 3                     ; 0                              ;
+;     -- <=3 input functions                                  ; 33                    ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 10                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 109 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 1 / 64140 ( < 1 % )   ; 0 / 64140 ( 0 % )              ;
+;         -- Primary logic registers                          ; 108 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 2 / 64140 ( < 1 % )   ; 0 / 64140 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
 ;         -- Design implementation registers                  ; 110                   ; 0                              ;
 ;         -- Routing optimization registers                   ; 0                     ; 0                              ;
@@ -388,7 +390,7 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 975                   ; 0                              ;
+;     -- Total Connections                                    ; 934                   ; 0                              ;
 ;     -- Registered Connections                               ; 378                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
@@ -443,8 +445,8 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 +--------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name               ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Output Buffer Delay ; Output Buffer Delay Control ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +--------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
-; LED_RAM_ADDR[0]    ; V16   ; 4A       ; 52           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; LED_RAM_ADDR[1]    ; W16   ; 4A       ; 52           ; 0            ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
+; LED_RAM[0]         ; V16   ; 4A       ; 52           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
+; LED_RAM[1]         ; W16   ; 4A       ; 52           ; 0            ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; LED_RAM_DATA_IN[0] ; V17   ; 4A       ; 60           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; LED_RAM_DATA_IN[1] ; V18   ; 4A       ; 80           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; LED_RAM_DATA_IN[2] ; W17   ; 4A       ; 60           ; 0            ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -1375,7 +1377,7 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 ; V13      ;            ; --             ; VCC                             ; power  ;              ; 1.1V                ; --           ;                 ; --       ; --           ;
 ; V14      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; V15      ;            ; --             ; VCC                             ; power  ;              ; 1.1V                ; --           ;                 ; --       ; --           ;
-; V16      ; 138        ; 4A             ; LED_RAM_ADDR[0]                 ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
+; V16      ; 138        ; 4A             ; LED_RAM[0]                      ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; V17      ; 154        ; 4A             ; LED_RAM_DATA_IN[0]              ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; V18      ; 194        ; 4A             ; LED_RAM_DATA_IN[1]              ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; V19      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -1405,7 +1407,7 @@ The pin-out file can be found in C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA
 ; W13      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; W14      ;            ; --             ; VCC                             ; power  ;              ; 1.1V                ; --           ;                 ; --       ; --           ;
 ; W15      ; 130        ; 3B             ; load_Bar                        ; input  ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
-; W16      ; 136        ; 4A             ; LED_RAM_ADDR[1]                 ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
+; W16      ; 136        ; 4A             ; LED_RAM[1]                      ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; W17      ; 152        ; 4A             ; LED_RAM_DATA_IN[2]              ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; W18      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; W19      ; 192        ; 4A             ; LED_RAM_DATA_IN[3]              ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
@@ -1459,8 +1461,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------------+-------------------------------+
 ; Pin Name           ; Reason                        ;
 +--------------------+-------------------------------+
-; LED_RAM_ADDR[0]    ; Incomplete set of assignments ;
-; LED_RAM_ADDR[1]    ; Incomplete set of assignments ;
+; LED_RAM[0]         ; Incomplete set of assignments ;
+; LED_RAM[1]         ; Incomplete set of assignments ;
 ; LED_RAM_DATA_IN[0] ; Incomplete set of assignments ;
 ; LED_RAM_DATA_IN[1] ; Incomplete set of assignments ;
 ; LED_RAM_DATA_IN[2] ; Incomplete set of assignments ;
@@ -1562,12 +1564,12 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name  ; Library Name ;
 +----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------+--------------+--------------+
-; |color_picker              ; 84.5 (33.5)          ; 97.5 (39.0)                      ; 13.0 (5.5)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 166 (64)            ; 110 (21)                  ; 0 (0)         ; 0                 ; 0     ; 0          ; 95   ; 0            ; |color_picker               ; color_picker ; work         ;
-;    |basic_RAM:U2|          ; 25.2 (25.2)          ; 26.3 (26.3)                      ; 1.2 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 51 (51)             ; 48 (48)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|basic_RAM:U2  ; basic_RAM    ; work         ;
-;    |controller:U1|         ; 11.3 (11.3)          ; 15.9 (15.9)                      ; 4.6 (4.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 9 (9)               ; 41 (41)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|controller:U1 ; controller   ; work         ;
-;    |seven_seg:U3|          ; 4.8 (4.8)            ; 5.2 (5.2)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 14 (14)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U3  ; seven_seg    ; work         ;
-;    |seven_seg:U4|          ; 4.5 (4.5)            ; 4.8 (4.8)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 14 (14)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U4  ; seven_seg    ; work         ;
-;    |seven_seg:U5|          ; 5.2 (5.2)            ; 6.3 (6.3)                        ; 1.2 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 14 (14)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U5  ; seven_seg    ; work         ;
+; |color_picker              ; 61.0 (27.0)          ; 84.0 (30.3)                      ; 23.0 (3.3)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 118 (64)            ; 110 (21)                  ; 0 (0)         ; 0                 ; 0     ; 0          ; 95   ; 0            ; |color_picker               ; color_picker ; work         ;
+;    |basic_RAM:U2|          ; 8.0 (8.0)            ; 18.8 (18.8)                      ; 10.8 (10.8)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 48 (48)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|basic_RAM:U2  ; basic_RAM    ; work         ;
+;    |controller:U1|         ; 11.3 (11.3)          ; 17.6 (17.6)                      ; 6.2 (6.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 9 (9)               ; 41 (41)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|controller:U1 ; controller   ; work         ;
+;    |seven_seg:U3|          ; 4.8 (4.8)            ; 5.7 (5.7)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 14 (14)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U3  ; seven_seg    ; work         ;
+;    |seven_seg:U4|          ; 5.0 (5.0)            ; 6.3 (6.3)                        ; 1.3 (1.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 14 (14)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U4  ; seven_seg    ; work         ;
+;    |seven_seg:U5|          ; 4.8 (4.8)            ; 5.3 (5.3)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 14 (14)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |color_picker|seven_seg:U5  ; seven_seg    ; work         ;
 +----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1577,8 +1579,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 ; Name               ; Pin Type ; D1 ; D3_0 ; D3_1 ; D4 ; D5   ; D5 OE ; D5 OCT ; T11 (Postamble Gating) ; T11 (Postamble Ungating) ;
 +--------------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
-; LED_RAM_ADDR[0]    ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; LED_RAM_ADDR[1]    ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; LED_RAM[0]         ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; LED_RAM[1]         ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LED_RAM_DATA_IN[0] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LED_RAM_DATA_IN[1] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LED_RAM_DATA_IN[2] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
@@ -1661,13 +1663,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; load_Bar           ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; clk_50             ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; enable_Bar         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; state_switch[0]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; state_switch[0]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; state_switch[1]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; data_in[0]         ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; data_in[0]         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; data_in[1]         ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; data_in[2]         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; data_in[2]         ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; data_in[3]         ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; data_in[4]         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; data_in[4]         ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; data_in[5]         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; data_in[6]         ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; data_in[7]         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
@@ -1675,97 +1677,97 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+---------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                            ;
-+---------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                         ; Pad To Core Index ; Setting ;
-+---------------------------------------------+-------------------+---------+
-; load_Bar                                    ;                   ;         ;
-;      - Mux7~1                               ; 1                 ; 0       ;
-; clk_50                                      ;                   ;         ;
-; enable_Bar                                  ;                   ;         ;
-;      - controller:U1|RAM_WR~0               ; 0                 ; 0       ;
-; state_switch[0]                             ;                   ;         ;
-;      - controller:U1|RAM_DATA_OUT[7]~0      ; 0                 ; 0       ;
-;      - controller:U1|R_data_out[3]~0        ; 0                 ; 0       ;
-;      - controller:U1|G_data_out[3]~0        ; 0                 ; 0       ;
-;      - controller:U1|B_data_out[3]~0        ; 0                 ; 0       ;
-;      - controller:U1|Selector0~0            ; 0                 ; 0       ;
-;      - controller:U1|Selector2~0            ; 0                 ; 0       ;
-;      - controller:U1|Selector1~0            ; 0                 ; 0       ;
-;      - controller:U1|RAM_ADDR[0]~0          ; 0                 ; 0       ;
-; state_switch[1]                             ;                   ;         ;
-;      - controller:U1|RAM_DATA_OUT[7]~0      ; 0                 ; 0       ;
-;      - controller:U1|R_data_out[3]~0        ; 0                 ; 0       ;
-;      - controller:U1|G_data_out[3]~0        ; 0                 ; 0       ;
-;      - controller:U1|B_data_out[3]~0        ; 0                 ; 0       ;
-;      - controller:U1|Selector0~0            ; 0                 ; 0       ;
-;      - controller:U1|Selector2~0            ; 0                 ; 0       ;
-;      - controller:U1|Selector1~0            ; 0                 ; 0       ;
-;      - controller:U1|RAM_ADDR[0]~0          ; 0                 ; 0       ;
-; data_in[0]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[0]          ; 1                 ; 0       ;
-;      - controller:U1|G_data_out[0]          ; 1                 ; 0       ;
-;      - controller:U1|B_data_out[0]          ; 1                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[0]        ; 1                 ; 0       ;
-; data_in[1]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[1]          ; 1                 ; 0       ;
-;      - controller:U1|G_data_out[1]          ; 1                 ; 0       ;
-;      - controller:U1|B_data_out[1]          ; 1                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[1]        ; 1                 ; 0       ;
-; data_in[2]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[2]          ; 0                 ; 0       ;
-;      - controller:U1|G_data_out[2]          ; 0                 ; 0       ;
-;      - controller:U1|B_data_out[2]          ; 0                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[2]        ; 0                 ; 0       ;
-; data_in[3]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[3]          ; 1                 ; 0       ;
-;      - controller:U1|G_data_out[3]          ; 1                 ; 0       ;
-;      - controller:U1|B_data_out[3]          ; 1                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[3]        ; 1                 ; 0       ;
-; data_in[4]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[4]          ; 0                 ; 0       ;
-;      - controller:U1|G_data_out[4]          ; 0                 ; 0       ;
-;      - controller:U1|B_data_out[4]          ; 0                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[4]~feeder ; 0                 ; 0       ;
-; data_in[5]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[5]          ; 0                 ; 0       ;
-;      - controller:U1|G_data_out[5]          ; 0                 ; 0       ;
-;      - controller:U1|B_data_out[5]          ; 0                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[5]~feeder ; 0                 ; 0       ;
-; data_in[6]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[6]          ; 1                 ; 0       ;
-;      - controller:U1|G_data_out[6]          ; 1                 ; 0       ;
-;      - controller:U1|B_data_out[6]          ; 1                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[6]        ; 1                 ; 0       ;
-; data_in[7]                                  ;                   ;         ;
-;      - controller:U1|R_data_out[7]          ; 0                 ; 0       ;
-;      - controller:U1|G_data_out[7]          ; 0                 ; 0       ;
-;      - controller:U1|B_data_out[7]          ; 0                 ; 0       ;
-;      - controller:U1|RAM_DATA_OUT[7]~feeder ; 0                 ; 0       ;
-; reset_Bar                                   ;                   ;         ;
-;      - v_pos[8]~0                           ; 1                 ; 0       ;
-;      - h_pos[9]~0                           ; 1                 ; 0       ;
-+---------------------------------------------+-------------------+---------+
++-------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                          ;
++-------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                       ; Pad To Core Index ; Setting ;
++-------------------------------------------+-------------------+---------+
+; load_Bar                                  ;                   ;         ;
+;      - Mux7~1                             ; 1                 ; 0       ;
+; clk_50                                    ;                   ;         ;
+; enable_Bar                                ;                   ;         ;
+;      - controller:U1|RAM_WR~0             ; 0                 ; 0       ;
+; state_switch[0]                           ;                   ;         ;
+;      - controller:U1|RAM_DATA_OUT[7]~0    ; 1                 ; 0       ;
+;      - controller:U1|R_data_out[3]~0      ; 1                 ; 0       ;
+;      - controller:U1|G_data_out[3]~0      ; 1                 ; 0       ;
+;      - controller:U1|B_data_out[3]~0      ; 1                 ; 0       ;
+;      - controller:U1|Selector0~0          ; 1                 ; 0       ;
+;      - controller:U1|Selector2~0          ; 1                 ; 0       ;
+;      - controller:U1|Selector1~0          ; 1                 ; 0       ;
+;      - controller:U1|RAM_ADDR[0]~0        ; 1                 ; 0       ;
+; state_switch[1]                           ;                   ;         ;
+;      - controller:U1|RAM_DATA_OUT[7]~0    ; 0                 ; 0       ;
+;      - controller:U1|R_data_out[3]~0      ; 0                 ; 0       ;
+;      - controller:U1|G_data_out[3]~0      ; 0                 ; 0       ;
+;      - controller:U1|B_data_out[3]~0      ; 0                 ; 0       ;
+;      - controller:U1|Selector0~0          ; 0                 ; 0       ;
+;      - controller:U1|Selector2~0          ; 0                 ; 0       ;
+;      - controller:U1|Selector1~0          ; 0                 ; 0       ;
+;      - controller:U1|RAM_ADDR[0]~0        ; 0                 ; 0       ;
+; data_in[0]                                ;                   ;         ;
+;      - controller:U1|R_data_out[0]        ; 0                 ; 0       ;
+;      - controller:U1|G_data_out[0]        ; 0                 ; 0       ;
+;      - controller:U1|B_data_out[0]        ; 0                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[0]      ; 0                 ; 0       ;
+; data_in[1]                                ;                   ;         ;
+;      - controller:U1|G_data_out[1]        ; 1                 ; 0       ;
+;      - controller:U1|B_data_out[1]        ; 1                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[1]      ; 1                 ; 0       ;
+;      - controller:U1|R_data_out[1]~feeder ; 1                 ; 0       ;
+; data_in[2]                                ;                   ;         ;
+;      - controller:U1|G_data_out[2]        ; 1                 ; 0       ;
+;      - controller:U1|B_data_out[2]        ; 1                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[2]      ; 1                 ; 0       ;
+;      - controller:U1|R_data_out[2]~feeder ; 1                 ; 0       ;
+; data_in[3]                                ;                   ;         ;
+;      - controller:U1|R_data_out[3]        ; 1                 ; 0       ;
+;      - controller:U1|G_data_out[3]        ; 1                 ; 0       ;
+;      - controller:U1|B_data_out[3]        ; 1                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[3]      ; 1                 ; 0       ;
+; data_in[4]                                ;                   ;         ;
+;      - controller:U1|R_data_out[4]        ; 1                 ; 0       ;
+;      - controller:U1|B_data_out[4]        ; 1                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[4]      ; 1                 ; 0       ;
+;      - controller:U1|G_data_out[4]~feeder ; 1                 ; 0       ;
+; data_in[5]                                ;                   ;         ;
+;      - controller:U1|R_data_out[5]        ; 0                 ; 0       ;
+;      - controller:U1|B_data_out[5]        ; 0                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[5]      ; 0                 ; 0       ;
+;      - controller:U1|G_data_out[5]~feeder ; 0                 ; 0       ;
+; data_in[6]                                ;                   ;         ;
+;      - controller:U1|R_data_out[6]        ; 1                 ; 0       ;
+;      - controller:U1|B_data_out[6]        ; 1                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[6]      ; 1                 ; 0       ;
+;      - controller:U1|G_data_out[6]~feeder ; 1                 ; 0       ;
+; data_in[7]                                ;                   ;         ;
+;      - controller:U1|R_data_out[7]        ; 0                 ; 0       ;
+;      - controller:U1|G_data_out[7]        ; 0                 ; 0       ;
+;      - controller:U1|B_data_out[7]        ; 0                 ; 0       ;
+;      - controller:U1|RAM_DATA_OUT[7]      ; 0                 ; 0       ;
+; reset_Bar                                 ;                   ;         ;
+;      - v_pos[8]~0                         ; 1                 ; 0       ;
+;      - h_pos[9]~0                         ; 1                 ; 0       ;
++-------------------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                            ;
-+---------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name                            ; Location            ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; basic_RAM:U2|Decoder0~0         ; LABCELL_X62_Y17_N18 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; basic_RAM:U2|Decoder0~1         ; LABCELL_X62_Y17_N9  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; basic_RAM:U2|Decoder0~2         ; LABCELL_X61_Y17_N57 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; clk_50                          ; PIN_AF14            ; 111     ; Clock                     ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; controller:U1|B_data_out[3]~0   ; LABCELL_X63_Y15_N57 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; controller:U1|G_data_out[3]~0   ; LABCELL_X62_Y17_N27 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; controller:U1|RAM_ADDR[0]~0     ; LABCELL_X62_Y17_N54 ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; controller:U1|RAM_DATA_OUT[7]~0 ; LABCELL_X62_Y17_N33 ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; controller:U1|R_data_out[3]~0   ; LABCELL_X63_Y15_N18 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; h_pos[9]~0                      ; LABCELL_X37_Y31_N42 ; 21      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; v_pos[8]~0                      ; LABCELL_X36_Y31_N42 ; 10      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-+---------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                             ;
++---------------------------------+----------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; Name                            ; Location             ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------------------------+----------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; basic_RAM:U2|Decoder0~0         ; LABCELL_X43_Y41_N12  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; basic_RAM:U2|Decoder0~1         ; LABCELL_X43_Y41_N27  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; basic_RAM:U2|Decoder0~2         ; LABCELL_X43_Y41_N21  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; clk_50                          ; PIN_AF14             ; 111     ; Clock                     ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; controller:U1|B_data_out[3]~0   ; LABCELL_X43_Y41_N45  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; controller:U1|G_data_out[3]~0   ; LABCELL_X43_Y40_N0   ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; controller:U1|RAM_ADDR[0]~0     ; LABCELL_X43_Y41_N54  ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; controller:U1|RAM_DATA_OUT[7]~0 ; LABCELL_X43_Y41_N48  ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; controller:U1|R_data_out[3]~0   ; LABCELL_X43_Y41_N24  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; h_pos[9]~0                      ; LABCELL_X40_Y78_N48  ; 21      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; v_pos[8]~0                      ; MLABCELL_X39_Y78_N30 ; 10      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
++---------------------------------+----------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -1782,14 +1784,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 257 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 49 / 13,420 ( < 1 % )   ;
-; C2 interconnects                            ; 77 / 119,108 ( < 1 % )  ;
-; C4 interconnects                            ; 412 / 56,300 ( < 1 % )  ;
+; Block interconnects                         ; 214 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 113 / 13,420 ( < 1 % )  ;
+; C2 interconnects                            ; 87 / 119,108 ( < 1 % )  ;
+; C4 interconnects                            ; 397 / 56,300 ( < 1 % )  ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 18 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 17 / 289,320 ( < 1 % )  ;
 ; Global clocks                               ; 1 / 16 ( 6 % )          ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -1845,13 +1847,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 67 / 84,580 ( < 1 % )   ;
+; Local interconnects                         ; 53 / 84,580 ( < 1 % )   ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 93 / 12,676 ( < 1 % )   ;
-; R14/C12 interconnect drivers                ; 129 / 20,720 ( < 1 % )  ;
-; R3 interconnects                            ; 157 / 130,992 ( < 1 % ) ;
-; R6 interconnects                            ; 307 / 266,960 ( < 1 % ) ;
-; Spine clocks                                ; 3 / 360 ( < 1 % )       ;
+; R14 interconnects                           ; 126 / 12,676 ( < 1 % )  ;
+; R14/C12 interconnect drivers                ; 218 / 20,720 ( 1 % )    ;
+; R3 interconnects                            ; 150 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 245 / 266,960 ( < 1 % ) ;
+; Spine clocks                                ; 2 / 360 ( < 1 % )       ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
 
@@ -1915,8 +1917,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Total Unchecked    ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
 ; Total Inapplicable ; 0         ; 95           ; 0         ; 95           ; 95           ; 0         ; 0         ; 95           ; 0         ; 0         ; 95           ; 14           ; 95           ; 95           ; 95           ; 95           ; 14           ; 95           ; 95           ; 95           ; 95           ; 14           ; 95           ; 95           ; 95           ; 95           ; 95           ; 95           ;
 ; Total Fail         ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
-; LED_RAM_ADDR[0]    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; LED_RAM_ADDR[1]    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; LED_RAM[0]         ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; LED_RAM[1]         ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; LED_RAM_DATA_IN[0] ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; LED_RAM_DATA_IN[1] ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; LED_RAM_DATA_IN[2] ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
@@ -2061,41 +2063,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; clk_50          ; clk_50               ; 6.9               ;
+; clk_50          ; clk_50               ; 1.7               ;
 +-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+--------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                              ;
-+-------------------------------------+----------------------------------+-------------------+
-; Source Register                     ; Destination Register             ; Delay Added in ns ;
-+-------------------------------------+----------------------------------+-------------------+
-; controller:U1|RAM_DATA_OUT[1]       ; basic_RAM:U2|RAM[0][1]           ; 0.312             ;
-; basic_RAM:U2|RAM[1][6]              ; basic_RAM:U2|RAM_G_DATA_OUT[6]   ; 0.305             ;
-; basic_RAM:U2|RAM[1][5]              ; basic_RAM:U2|RAM_G_DATA_OUT[5]   ; 0.305             ;
-; basic_RAM:U2|RAM[1][0]              ; basic_RAM:U2|RAM_G_DATA_OUT[0]   ; 0.305             ;
-; controller:U1|RAM_DATA_OUT[7]       ; basic_RAM:U2|RAM[0][7]           ; 0.305             ;
-; controller:U1|RAM_DATA_OUT[3]       ; basic_RAM:U2|RAM[0][3]           ; 0.305             ;
-; controller:U1|RAM_DATA_OUT[0]       ; basic_RAM:U2|RAM[2][0]           ; 0.305             ;
-; controller:U1|RAM_DATA_OUT[6]       ; basic_RAM:U2|RAM[0][6]           ; 0.300             ;
-; basic_RAM:U2|RAM[2][4]              ; basic_RAM:U2|RAM_B_DATA_OUT[4]   ; 0.292             ;
-; basic_RAM:U2|RAM[1][4]              ; basic_RAM:U2|RAM_G_DATA_OUT[4]   ; 0.292             ;
-; basic_RAM:U2|RAM[1][3]              ; basic_RAM:U2|RAM_G_DATA_OUT[3]   ; 0.292             ;
-; controller:U1|RAM_DATA_OUT[2]       ; basic_RAM:U2|RAM[0][2]           ; 0.292             ;
-; controller:U1|RAM_DATA_OUT[5]       ; basic_RAM:U2|RAM[2][5]           ; 0.285             ;
-; controller:U1|RAM_DATA_OUT[4]       ; basic_RAM:U2|RAM[0][4]           ; 0.285             ;
-; controller:U1|present_state.B_write ; controller:U1|next_state.B_write ; 0.267             ;
-; controller:U1|present_state.G_write ; controller:U1|next_state.G_write ; 0.251             ;
-; controller:U1|present_state.R_write ; controller:U1|next_state.R_write ; 0.246             ;
-; basic_RAM:U2|RAM[2][3]              ; basic_RAM:U2|RAM_B_DATA_OUT[3]   ; 0.179             ;
-; basic_RAM:U2|RAM[2][2]              ; basic_RAM:U2|RAM_B_DATA_OUT[2]   ; 0.179             ;
-; basic_RAM:U2|RAM[0][6]              ; basic_RAM:U2|RAM_R_DATA_OUT[6]   ; 0.146             ;
-; basic_RAM:U2|RAM[2][5]              ; basic_RAM:U2|RAM_B_DATA_OUT[5]   ; 0.099             ;
-; basic_RAM:U2|RAM[0][4]              ; basic_RAM:U2|RAM_R_DATA_OUT[4]   ; 0.096             ;
-+-------------------------------------+----------------------------------+-------------------+
-Note: This table only shows the top 22 path(s) that have the largest delay added for hold.
++-----------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                 ;
++-------------------------------------+-------------------------------------+-------------------+
+; Source Register                     ; Destination Register                ; Delay Added in ns ;
++-------------------------------------+-------------------------------------+-------------------+
+; controller:U1|present_state.B_write ; controller:U1|next_state.B_write    ; 0.340             ;
+; controller:U1|present_state.R_write ; controller:U1|next_state.R_write    ; 0.323             ;
+; controller:U1|RAM_DATA_OUT[6]       ; basic_RAM:U2|RAM[2][6]              ; 0.051             ;
+; controller:U1|RAM_DATA_OUT[4]       ; basic_RAM:U2|RAM[2][4]              ; 0.051             ;
+; controller:U1|RAM_DATA_OUT[2]       ; basic_RAM:U2|RAM[2][2]              ; 0.051             ;
+; controller:U1|RAM_DATA_OUT[0]       ; basic_RAM:U2|RAM[2][0]              ; 0.051             ;
+; controller:U1|RAM_DATA_OUT[7]       ; basic_RAM:U2|RAM[2][7]              ; 0.044             ;
+; controller:U1|RAM_DATA_OUT[5]       ; basic_RAM:U2|RAM[2][5]              ; 0.044             ;
+; controller:U1|RAM_DATA_OUT[3]       ; basic_RAM:U2|RAM[2][3]              ; 0.044             ;
+; controller:U1|RAM_DATA_OUT[1]       ; basic_RAM:U2|RAM[2][1]              ; 0.044             ;
+; controller:U1|next_state.R_write    ; controller:U1|present_state.R_write ; 0.012             ;
++-------------------------------------+-------------------------------------+-------------------+
+Note: This table only shows the top 11 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -2122,10 +2113,12 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Warning (15705): Ignored locations or region assignments to the following nodes
+    Warning (15706): Node "LED_RAM_ADDR[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED_RAM_ADDR[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "data_In[8]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "data_In[9]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "load_bar" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:13
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:14
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
@@ -2134,11 +2127,11 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X56_Y11 to location X66_Y22
+    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X33_Y35 to location X44_Y45
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 0.43 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.46 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2146,11 +2139,11 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:04
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/LocalAltera/LocalQuartusProjects/DE1-SoC/VGA_ColorPicker/output_files/color_picker.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 6555 megabytes
-    Info: Processing ended: Sun Apr 04 03:07:34 2021
-    Info: Elapsed time: 00:00:40
-    Info: Total CPU time (on all processors): 00:01:02
+Info: Quartus Prime Fitter was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 6556 megabytes
+    Info: Processing ended: Sun Apr 04 14:34:04 2021
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:01:09
 
 
 +----------------------------+

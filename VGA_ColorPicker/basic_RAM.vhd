@@ -8,7 +8,7 @@
 -- Last modified : 04 ‎April ‎2021
 -------------------------------------------------------------------------------
 -- Description :
--- 24 bits VGA color picker from hexadecimal value
+-- Defining simple BRAM for taking 8-bit RGB data and outputing 24-bit RGB data
 -------------------------------------------------------------------------------
 -- GitHub : kaichun10
 -- Website : www.kaichunhu.com
@@ -21,7 +21,6 @@ USE ieee.numeric_std.ALL;
 -- simple BRAM in VHDL
 ENTITY basic_RAM IS
    PORT (
-
       -- CLK (need to synchronous to CLK_50)
       RAM_CLOCK : IN STD_LOGIC;
 
