@@ -1,21 +1,16 @@
-VHDL
-
-VSCode_VHDL_PlugIn
+# VSCode_VHDL_PlugIn
 https://marketplace.visualstudio.com/items?itemName=rjyoung.vscode-modern-vhdl-support
 
-VS_Code_Verilog_PlugIn
+# VSCode_Verilog_PlugIn
 https://marketplace.visualstudio.com/items?itemName=mshr-h.VerilogHDL
 
-Auto_Formatter
+# Auto_Formatter
 https://marketplace.visualstudio.com/items?itemName=Vinrobot.vhdl-formatter
-
-
-Keyboard_Shortcut
-
-Comment_Code_Block
-Ctrl + K + C
-
-Auto_Format
+# Auto_Format
 SHIFT + ALT + F
 
-
+# Keyboard_Shortcut
+# Comment_Code_Block
+Ctrl + K + C
+# Uncomment_Code_Block
+Ctrl + K + U
