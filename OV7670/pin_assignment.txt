@@ -1,0 +1,61 @@
+To,Location
+
+clk_50, PIN_AF14
+
+btn_resend, PIN_AA14
+LED_config_finished, PIN_V16
+
+ov7670_sioc, PIN_AH19
+ov7670_siod, PIN_AJ20
+ov7670_vsync, PIN_AH20
+ov7670_href, PIN_AK21
+ov7670_pclk, PIN_AD19
+ov7670_xclk, PIN_AD20
+ov7670_data[0], PIN_AE18
+ov7670_data[1], PIN_AE19
+ov7670_data[2], PIN_AF20
+ov7670_data[3], PIN_AF21
+ov7670_data[4], PIN_AF19
+ov7670_data[5], PIN_AG21
+ov7670_data[6], PIN_AF18
+ov7670_data[7], PIN_AG20
+ov7670_reset, PIN_AG18
+ov7670_pwdn, PIN_AJ21
+
+KEY[0], PIN_AA14
+KEY[1], PIN_AA15
+KEY[2], PIN_W15
+KEY[3], PIN_Y16
+
+vga_CLK, PIN_A11
+vga_hsync, PIN_B11
+vga_vsync, PIN_D11
+vga_blank_N, PIN_F10
+vga_sync_N, PIN_C10
+
+vga_r[0], PIN_A13
+vga_r[1], PIN_C13
+vga_r[2], PIN_E13
+vga_r[3], PIN_B12
+vga_r[4], PIN_C12
+vga_r[5], PIN_D12
+vga_r[6], PIN_E12
+vga_r[7], PIN_F13
+
+vga_g[0], PIN_J9
+vga_g[1], PIN_J10
+vga_g[2], PIN_H12
+vga_g[3], PIN_G10
+vga_g[4], PIN_G11
+vga_g[5], PIN_G12
+vga_g[6], PIN_F11
+vga_g[7], PIN_E11
+
+vga_b[0], PIN_B13
+vga_b[1], PIN_G13
+vga_b[2], PIN_H13
+vga_b[3], PIN_F14
+vga_b[4], PIN_H14
+vga_b[5], PIN_F15
+vga_b[6], PIN_G15
+vga_b[7], PIN_J14
